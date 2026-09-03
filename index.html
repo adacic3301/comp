@@ -25,6 +25,8 @@
           pine:    '#3E4C3B',
           rust:    '#A15C38',
           rustdark:'#82492C',
+          gold:    '#C4922E',
+          sky:     '#4C7A93',
         },
         fontFamily: {
           display: ['"Space Grotesk"', 'sans-serif'],
@@ -76,6 +78,14 @@
 </head>
 
 <body class="bg-cream text-charcoal font-sans antialiased">
+
+<!-- Accent stripe -->
+<div class="h-1.5 w-full flex" aria-hidden="true">
+  <div class="flex-1 bg-rust"></div>
+  <div class="flex-1 bg-gold"></div>
+  <div class="flex-1 bg-pine"></div>
+  <div class="flex-1 bg-sky"></div>
+</div>
 
 <!-- =========================================================
      NAVIGATION
@@ -156,17 +166,20 @@
     <!-- Mountain line-art illustration (hand-drawn SVG, no stock imagery needed) -->
     <div class="hero-rise-delay-2 relative border-2 border-charcoal bg-paper shadow-hard aspect-[4/3]" aria-hidden="true">
       <svg viewBox="0 0 400 300" class="w-full h-full" preserveAspectRatio="xMidYMax slice">
-        <rect x="0" y="0" width="400" height="300" fill="#FBFAF7"/>
+        <rect x="0" y="0" width="400" height="300" fill="#4C7A93" opacity="0.15"/>
+        <!-- sun -->
+        <circle cx="330" cy="55" r="20" fill="#C4922E" opacity="0.9"/>
         <!-- back ridge -->
-        <polygon points="0,190 60,120 110,170 170,90 230,180 290,130 340,175 400,140 400,300 0,300" fill="#3E4C3B" opacity="0.18"/>
+        <polygon points="0,190 60,120 110,170 170,90 230,180 290,130 340,175 400,140 400,300 0,300" fill="#3E4C3B" opacity="0.35"/>
         <!-- Watzmann-esque main peaks -->
-        <polygon points="0,230 90,80 150,175 210,60 270,190 330,110 400,200 400,300 0,300" fill="#3E4C3B" opacity="0.35"/>
+        <polygon points="0,230 90,80 150,175 210,60 270,190 330,110 400,200 400,300 0,300" fill="#3E4C3B" opacity="0.6"/>
         <polygon points="70,300 150,175 210,60 270,190 330,300" fill="#201D1A"/>
         <!-- snow caps -->
         <polygon points="200,80 210,60 220,80 213,92 207,92" fill="#F6F3EC"/>
         <polygon points="138,190 150,175 160,190 152,198 145,198" fill="#F6F3EC"/>
-        <!-- sun mark -->
-        <circle cx="330" cy="55" r="18" fill="none" stroke="#A15C38" stroke-width="2"/>
+        <!-- foreground rust accent ridge -->
+        <polygon points="0,300 0,255 60,225 130,255 190,235 190,300" fill="#A15C38" opacity="0.5"/>
+        <circle cx="330" cy="55" r="20" fill="none" stroke="#201D1A" stroke-width="1.5"/>
       </svg>
       <div class="absolute bottom-0 left-0 right-0 border-t-2 border-charcoal bg-cream px-4 py-2 text-xs font-display font-bold flex justify-between">
         <span data-i18n="hero.imgcaption">Watzmann massif, Berchtesgaden</span>
@@ -192,8 +205,8 @@
     <!-- Property card 1: Ferienwohnung Watzmann -->
     <article id="watzmann" class="border-2 border-charcoal bg-paper shadow-hard flex flex-col scroll-mt-24">
       <!-- PASTE PHOTO: replace the placeholder <div> below with an <img src="images/watzmann-01.jpg" alt="..."> of Ferienwohnung Watzmann -->
-      <div class="aspect-[4/3] border-b-2 border-charcoal bg-charcoal/5 flex items-center justify-center relative">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-30" aria-hidden="true"><path d="M3 17L9 8L13 14L16 10L21 17" stroke="#201D1A" stroke-width="1.6"/><circle cx="18" cy="6" r="2" stroke="#201D1A" stroke-width="1.6"/></svg>
+      <div class="aspect-[4/3] border-b-2 border-charcoal bg-rust/10 flex items-center justify-center relative">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-60" aria-hidden="true"><path d="M3 17L9 8L13 14L16 10L21 17" stroke="#A15C38" stroke-width="1.6"/><circle cx="18" cy="6" r="2" stroke="#C4922E" stroke-width="1.6"/></svg>
         <span class="absolute bottom-3 left-3 text-xs font-display font-bold bg-cream border-2 border-charcoal px-2 py-1" data-i18n="properties.photoPlaceholder">Add photo: Ferienwohnung Watzmann</span>
       </div>
 
@@ -209,12 +222,12 @@
 
         <!-- Amenity tags -->
         <div class="flex flex-wrap gap-2 mb-8">
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="watzmann.tag1">Central location</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="watzmann.tag2">2 bedrooms</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="watzmann.tag3">Full kitchen</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="watzmann.tag4">Family friendly</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="watzmann.tag5">Free WiFi</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="watzmann.tag6">Balcony</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-rust text-cream px-2.5 py-1" data-i18n="watzmann.tag1">Central location</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-gold/25 px-2.5 py-1" data-i18n="watzmann.tag2">2 bedrooms</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-gold/25 px-2.5 py-1" data-i18n="watzmann.tag3">Full kitchen</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-rust/15 px-2.5 py-1" data-i18n="watzmann.tag4">Family friendly</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-gold/25 px-2.5 py-1" data-i18n="watzmann.tag5">Free WiFi</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-rust/15 px-2.5 py-1" data-i18n="watzmann.tag6">Balcony</span>
         </div>
 
         <div class="mt-auto">
@@ -231,8 +244,8 @@
     <!-- Property card 2: Ferienwohnung Auszeit -->
     <article id="auszeit" class="border-2 border-charcoal bg-paper shadow-hard flex flex-col scroll-mt-24">
       <!-- PASTE PHOTO: replace the placeholder <div> below with an <img src="images/auszeit-01.jpg" alt="..."> of Ferienwohnung Auszeit -->
-      <div class="aspect-[4/3] border-b-2 border-charcoal bg-pine/10 flex items-center justify-center relative">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-30" aria-hidden="true"><path d="M4 20C4 20 6 14 12 14C18 14 20 20 20 20" stroke="#201D1A" stroke-width="1.6"/><circle cx="12" cy="8" r="4" stroke="#201D1A" stroke-width="1.6"/></svg>
+      <div class="aspect-[4/3] border-b-2 border-charcoal bg-sky/10 flex items-center justify-center relative">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-60" aria-hidden="true"><path d="M4 20C4 20 6 14 12 14C18 14 20 20 20 20" stroke="#3E4C3B" stroke-width="1.6"/><circle cx="12" cy="8" r="4" stroke="#4C7A93" stroke-width="1.6"/></svg>
         <span class="absolute bottom-3 left-3 text-xs font-display font-bold bg-cream border-2 border-charcoal px-2 py-1" data-i18n="properties.photoPlaceholder2">Add photo: Ferienwohnung Auszeit</span>
       </div>
 
@@ -248,12 +261,12 @@
 
         <!-- Amenity tags -->
         <div class="flex flex-wrap gap-2 mb-8">
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="auszeit.tag1">Ultra-quiet street</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="auszeit.tag2">5 km/h zone</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="auszeit.tag3">Direct trail access</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="auszeit.tag4">Romantic setting</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="auszeit.tag5">Private terrace</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal px-2.5 py-1" data-i18n="auszeit.tag6">Free WiFi</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-pine text-cream px-2.5 py-1" data-i18n="auszeit.tag1">Ultra-quiet street</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-sky/25 px-2.5 py-1" data-i18n="auszeit.tag2">Play street</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-sky/25 px-2.5 py-1" data-i18n="auszeit.tag3">Direct trail access</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-pine/15 px-2.5 py-1" data-i18n="auszeit.tag4">Romantic setting</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-pine/15 px-2.5 py-1" data-i18n="auszeit.tag5">Private terrace</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-sky/25 px-2.5 py-1" data-i18n="auszeit.tag6">Free WiFi</span>
         </div>
 
         <div class="mt-auto">
@@ -277,7 +290,7 @@
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
     <div class="grid md:grid-cols-2 gap-12 md:gap-16">
       <div>
-        <p class="font-display font-bold text-rust text-sm mb-3" data-i18n="location.eyebrow">Where you'll be</p>
+        <p class="font-display font-bold text-gold text-sm mb-3" data-i18n="location.eyebrow">Where you'll be</p>
         <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-6" data-i18n="location.headline">Berchtesgaden, between the Watzmann and the Königssee</h2>
         <p class="text-cream/80 leading-relaxed mb-6" data-i18n="location.p1">
           Both flats sit inside the Berchtesgadener Land, a stretch of Bavaria where the mountains start at the edge of town rather than an hour's drive away. Trailheads, alpine lakes and mountain huts are close enough to reach on foot or with a short drive.
@@ -288,20 +301,20 @@
       </div>
 
       <div class="grid grid-cols-2 gap-4 sm:gap-5 content-start">
-        <div class="border-2 border-cream p-5">
-          <p class="font-display font-bold text-2xl mb-1">2 292 m</p>
+        <div class="border-2 border-cream bg-gold/15 p-5">
+          <p class="font-display font-bold text-2xl mb-1 text-gold">2 292 m</p>
           <p class="text-sm text-cream/70" data-i18n="location.stat1">Watzmann summit, visible from town</p>
         </div>
-        <div class="border-2 border-cream p-5">
-          <p class="font-display font-bold text-2xl mb-1">5 km/h</p>
+        <div class="border-2 border-cream bg-sky/15 p-5">
+          <p class="font-display font-bold text-2xl mb-1 text-sky" data-i18n="location.stat2num">Play street</p>
           <p class="text-sm text-cream/70" data-i18n="location.stat2">Speed limit outside Ferienwohnung Auszeit</p>
         </div>
-        <div class="border-2 border-cream p-5">
-          <p class="font-display font-bold text-2xl mb-1">~30 min</p>
+        <div class="border-2 border-cream bg-rust/15 p-5">
+          <p class="font-display font-bold text-2xl mb-1 text-rust">~30 min</p>
           <p class="text-sm text-cream/70" data-i18n="location.stat3">Drive to Salzburg, Austria</p>
         </div>
-        <div class="border-2 border-cream p-5">
-          <p class="font-display font-bold text-2xl mb-1" data-i18n="location.stat4num">On foot</p>
+        <div class="border-2 border-cream bg-pine/25 p-5">
+          <p class="font-display font-bold text-2xl mb-1 text-cream" data-i18n="location.stat4num">On foot</p>
           <p class="text-sm text-cream/70" data-i18n="location.stat4">Hiking trails from the doorstep</p>
         </div>
       </div>
@@ -315,7 +328,7 @@
 <section id="about" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
   <div class="grid md:grid-cols-[1fr_1.3fr] gap-12 items-start">
     <div>
-      <p class="font-display font-bold text-rust text-sm mb-3" data-i18n="about.eyebrow">About us</p>
+      <p class="font-display font-bold text-pine text-sm mb-3" data-i18n="about.eyebrow">About us</p>
       <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight" data-i18n="about.headline">Two flats, run by people who live here</h2>
     </div>
     <div class="border-l-2 border-charcoal pl-8">
@@ -332,7 +345,7 @@
 <!-- =========================================================
      FOOTER
 ========================================================= -->
-<footer id="contact" class="border-t-2 border-charcoal bg-paper">
+<footer id="contact" class="border-t-4 border-rust bg-paper">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16">
     <div class="grid sm:grid-cols-3 gap-10 mb-12">
 
@@ -432,7 +445,7 @@
       'auszeit.location': 'Quiet street, edge of the forest',
       'auszeit.desc': "Cosy, intimate and built for slowing down. The flat sits on a play street with a strict 5 km/h limit, so the loudest thing you'll hear is the door onto the trail — hiking paths start right outside.",
       'auszeit.tag1': 'Ultra-quiet street',
-      'auszeit.tag2': '5 km/h zone',
+      'auszeit.tag2': 'Play street',
       'auszeit.tag3': 'Direct trail access',
       'auszeit.tag4': 'Romantic setting',
       'auszeit.tag5': 'Private terrace',
@@ -444,7 +457,8 @@
       'location.p1': "Both flats sit inside the Berchtesgadener Land, a stretch of Bavaria where the mountains start at the edge of town rather than an hour's drive away. Trailheads, alpine lakes and mountain huts are close enough to reach on foot or with a short drive.",
       'location.p2': "Salzburg is roughly 30 minutes away by car if you want a city day, but most guests find they don't need to leave the valley at all.",
       'location.stat1': 'Watzmann summit, visible from town',
-      'location.stat2': 'Speed limit outside Ferienwohnung Auszeit',
+      'location.stat2num': 'Play street',
+      'location.stat2': 'Right outside Ferienwohnung Auszeit',
       'location.stat3': 'Drive to Salzburg, Austria',
       'location.stat4num': 'On foot',
       'location.stat4': 'Hiking trails from the doorstep',
@@ -494,7 +508,7 @@
       'auszeit.location': 'Ruhige Straße am Waldrand',
       'auszeit.desc': 'Gemütlich, intim und ganz auf Entschleunigung ausgelegt. Die Wohnung liegt an einer Spielstraße mit striktem Tempo-5-Limit — direkt vor der Tür beginnen die Wanderwege.',
       'auszeit.tag1': 'Sehr ruhige Straße',
-      'auszeit.tag2': 'Tempo-5-Zone',
+      'auszeit.tag2': 'Spielstraße',
       'auszeit.tag3': 'Direkter Wanderwegzugang',
       'auszeit.tag4': 'Romantisches Ambiente',
       'auszeit.tag5': 'Private Terrasse',
@@ -506,7 +520,8 @@
       'location.p1': 'Beide Wohnungen liegen im Berchtesgadener Land, wo die Berge am Ortsrand beginnen und nicht erst nach einer Autostunde. Wanderwege, Bergseen und Almhütten sind zu Fuß oder mit einer kurzen Fahrt erreichbar.',
       'location.p2': 'Salzburg ist etwa 30 Minuten mit dem Auto entfernt, falls Sie einen Stadttag einlegen möchten — die meisten Gäste bleiben aber ganz im Tal.',
       'location.stat1': 'Watzmann-Gipfel, sichtbar vom Ort aus',
-      'location.stat2': 'Tempolimit vor der Ferienwohnung Auszeit',
+      'location.stat2num': 'Spielstraße',
+      'location.stat2': 'Direkt vor der Ferienwohnung Auszeit',
       'location.stat3': 'Fahrt nach Salzburg, Österreich',
       'location.stat4num': 'Zu Fuß',
       'location.stat4': 'Wanderwege direkt vor der Tür',
