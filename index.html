@@ -18,15 +18,16 @@
     theme: {
       extend: {
         colors: {
-          cream:   '#F6F3EC',
-          paper:   '#FBFAF7',
-          charcoal:'#201D1A',
-          slate:   '#57524A',
-          pine:    '#3E4C3B',
-          rust:    '#A15C38',
-          rustdark:'#82492C',
-          gold:    '#C4922E',
-          sky:     '#4C7A93',
+          cream:   '#F7F1E3',
+          paper:   '#FFFBF3',
+          charcoal:'#2B211B',
+          slate:   '#6B5B4D',
+          pine:    '#2F4A34',
+          rust:    '#B5432E',
+          rustdark:'#8F3322',
+          gold:    '#D79A2C',
+          sky:     '#4A7B8C',
+          wood:    '#7A4B2A',
         },
         fontFamily: {
           display: ['"Space Grotesk"', 'sans-serif'],
@@ -46,25 +47,38 @@
   html { scroll-behavior: smooth; }
 
   /* Sharp, hard-edged elevation used instead of soft drop shadows */
-  .shadow-hard    { box-shadow: 6px 6px 0 0 #201D1A; }
-  .shadow-hard-sm { box-shadow: 4px 4px 0 0 #201D1A; }
-  .shadow-hard-cream { box-shadow: 6px 6px 0 0 #F6F3EC; }
+  .shadow-hard    { box-shadow: 6px 6px 0 0 #2B211B; }
+  .shadow-hard-sm { box-shadow: 4px 4px 0 0 #2B211B; }
+  .shadow-hard-cream { box-shadow: 6px 6px 0 0 #F7F1E3; }
+
+  /* Cozy alpine ribbon trim used between sections */
+  .alpine-trim {
+    height: 12px;
+    border-top: 2px solid #2B211B;
+    border-bottom: 2px solid #2B211B;
+    background: repeating-linear-gradient(
+      45deg,
+      #B5432E 0px, #B5432E 16px,
+      #D79A2C 16px, #D79A2C 32px,
+      #2F4A34 32px, #2F4A34 48px
+    );
+  }
 
   .press-hard { transition: transform 150ms ease, box-shadow 150ms ease; }
-  .press-hard:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 #201D1A; }
-  .press-hard:active { transform: translate(4px, 4px); box-shadow: 0 0 0 0 #201D1A; }
+  .press-hard:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 #2B211B; }
+  .press-hard:active { transform: translate(4px, 4px); box-shadow: 0 0 0 0 #2B211B; }
 
   .press-hard-cream { transition: transform 150ms ease, box-shadow 150ms ease; }
-  .press-hard-cream:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 #F6F3EC; }
+  .press-hard-cream:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 #F7F1E3; }
 
   /* Visible keyboard focus */
   a:focus-visible, button:focus-visible {
-    outline: 2px solid #A15C38;
+    outline: 2px solid #B5432E;
     outline-offset: 3px;
   }
 
   /* Language toggle active state */
-  .lang-btn[aria-pressed="true"] { background-color: #201D1A; color: #F6F3EC; }
+  .lang-btn[aria-pressed="true"] { background-color: #2B211B; color: #F7F1E3; }
 
   /* Simple entrance for hero on load only (single orchestrated moment) */
   .hero-rise { animation: rise 700ms ease-out both; }
@@ -122,7 +136,7 @@
         <!-- Mobile menu button -->
         <button id="menu-toggle" type="button" class="md:hidden border-2 border-charcoal p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M2 5H18M2 10H18M2 15H18" stroke="#201D1A" stroke-width="2"/>
+            <path d="M2 5H18M2 10H18M2 15H18" stroke="#2B211B" stroke-width="2"/>
           </svg>
         </button>
       </div>
@@ -147,7 +161,7 @@
 <!-- =========================================================
      HERO
 ========================================================= -->
-<section id="home" class="relative overflow-hidden border-b-2 border-charcoal">
+<section id="home" class="relative overflow-hidden bg-gradient-to-br from-gold/20 via-cream to-rust/10">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24 grid md:grid-cols-2 gap-12 items-center">
 
     <!-- Text column -->
@@ -157,7 +171,7 @@
         Two apartments. One mountain range worth coming back to.
       </h1>
       <p class="hero-rise-delay-2 text-slate text-base sm:text-lg leading-relaxed mb-8 max-w-md" data-i18n="hero.sub">
-        A central, versatile flat in the heart of Berchtesgaden and a quiet, romantic hideaway on the edge of the forest — pick the one that fits your trip.
+        A central, versatile flat in the heart of Berchtesgaden and a quiet, romantic hideaway on the edge of the forest, pick the one that fits your trip.
       </p>
       <div class="hero-rise-delay-2 flex flex-wrap gap-4">
         <a href="#watzmann" class="bg-charcoal text-cream border-2 border-charcoal font-display font-bold text-sm px-5 py-3 shadow-hard press-hard" data-i18n="hero.cta1">View Ferienwohnung Watzmann</a>
@@ -168,20 +182,20 @@
     <!-- Mountain line-art illustration (hand-drawn SVG, no stock imagery needed) -->
     <div class="hero-rise-delay-2 relative border-2 border-charcoal bg-paper shadow-hard aspect-[4/3]" aria-hidden="true">
       <svg viewBox="0 0 400 300" class="w-full h-full" preserveAspectRatio="xMidYMax slice">
-        <rect x="0" y="0" width="400" height="300" fill="#4C7A93" opacity="0.15"/>
+        <rect x="0" y="0" width="400" height="300" fill="#4A7B8C" opacity="0.15"/>
         <!-- sun -->
-        <circle cx="330" cy="55" r="20" fill="#C4922E" opacity="0.9"/>
+        <circle cx="330" cy="55" r="20" fill="#D79A2C" opacity="0.9"/>
         <!-- back ridge -->
-        <polygon points="0,190 60,120 110,170 170,90 230,180 290,130 340,175 400,140 400,300 0,300" fill="#3E4C3B" opacity="0.35"/>
+        <polygon points="0,190 60,120 110,170 170,90 230,180 290,130 340,175 400,140 400,300 0,300" fill="#2F4A34" opacity="0.35"/>
         <!-- Watzmann-esque main peaks -->
-        <polygon points="0,230 90,80 150,175 210,60 270,190 330,110 400,200 400,300 0,300" fill="#3E4C3B" opacity="0.6"/>
-        <polygon points="70,300 150,175 210,60 270,190 330,300" fill="#201D1A"/>
+        <polygon points="0,230 90,80 150,175 210,60 270,190 330,110 400,200 400,300 0,300" fill="#2F4A34" opacity="0.6"/>
+        <polygon points="70,300 150,175 210,60 270,190 330,300" fill="#2B211B"/>
         <!-- snow caps -->
-        <polygon points="200,80 210,60 220,80 213,92 207,92" fill="#F6F3EC"/>
-        <polygon points="138,190 150,175 160,190 152,198 145,198" fill="#F6F3EC"/>
+        <polygon points="200,80 210,60 220,80 213,92 207,92" fill="#F7F1E3"/>
+        <polygon points="138,190 150,175 160,190 152,198 145,198" fill="#F7F1E3"/>
         <!-- foreground rust accent ridge -->
-        <polygon points="0,300 0,255 60,225 130,255 190,235 190,300" fill="#A15C38" opacity="0.5"/>
-        <circle cx="330" cy="55" r="20" fill="none" stroke="#201D1A" stroke-width="1.5"/>
+        <polygon points="0,300 0,255 60,225 130,255 190,235 190,300" fill="#B5432E" opacity="0.5"/>
+        <circle cx="330" cy="55" r="20" fill="none" stroke="#2B211B" stroke-width="1.5"/>
       </svg>
       <div class="absolute bottom-0 left-0 right-0 border-t-2 border-charcoal bg-cream px-4 py-2 text-xs font-display font-bold flex justify-between">
         <span data-i18n="hero.imgcaption">Watzmann massif, Berchtesgaden</span>
@@ -192,10 +206,12 @@
   </div>
 </section>
 
+<div class="alpine-trim" aria-hidden="true"></div>
+
 <!-- =========================================================
      PROPERTIES
 ========================================================= -->
-<section id="properties" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+<section id="properties" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24 bg-gold/5">
   <div class="max-w-xl mb-12">
     <p class="font-display font-bold text-rust text-sm mb-3" data-i18n="properties.eyebrow">The apartments</p>
     <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="properties.headline">Two very different bases for two very different trips</h2>
@@ -205,10 +221,10 @@
   <div class="grid lg:grid-cols-2 gap-8">
 
     <!-- Property card 1: Ferienwohnung Watzmann -->
-    <article id="watzmann" class="border-2 border-charcoal bg-paper shadow-hard flex flex-col scroll-mt-24">
+    <article id="watzmann" class="border-2 border-charcoal border-t-4 border-t-rust bg-paper shadow-hard flex flex-col scroll-mt-24">
       <!-- PASTE PHOTO: replace the placeholder <div> below with an <img src="images/watzmann-01.jpg" alt="..."> of Ferienwohnung Watzmann -->
       <div class="aspect-[4/3] border-b-2 border-charcoal bg-rust/10 flex items-center justify-center relative">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-60" aria-hidden="true"><path d="M3 17L9 8L13 14L16 10L21 17" stroke="#A15C38" stroke-width="1.6"/><circle cx="18" cy="6" r="2" stroke="#C4922E" stroke-width="1.6"/></svg>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-60" aria-hidden="true"><path d="M3 17L9 8L13 14L16 10L21 17" stroke="#B5432E" stroke-width="1.6"/><circle cx="18" cy="6" r="2" stroke="#D79A2C" stroke-width="1.6"/></svg>
         <span class="absolute bottom-3 left-3 text-xs font-display font-bold bg-cream border-2 border-charcoal px-2 py-1" data-i18n="properties.photoPlaceholder">Add photo: Ferienwohnung Watzmann</span>
       </div>
 
@@ -219,7 +235,7 @@
         <p class="text-rust font-display font-bold text-sm mb-4" data-i18n="watzmann.location">Central Berchtesgaden</p>
 
         <p class="text-slate leading-relaxed mb-6" data-i18n="watzmann.desc">
-          A modern, versatile flat right in the heart of town. Step outside and you're among local shops, restaurants and the market square — ideal whether you're travelling with family, with friends, or just want everything within walking distance.
+          A modern, versatile flat right in the heart of town. Step outside and you're among local shops, restaurants and the market square, ideal whether you're travelling with family, with friends, or just want everything within walking distance.
         </p>
 
         <!-- Amenity tags -->
@@ -244,10 +260,10 @@
     </article>
 
     <!-- Property card 2: Ferienwohnung Auszeit -->
-    <article id="auszeit" class="border-2 border-charcoal bg-paper shadow-hard flex flex-col scroll-mt-24">
+    <article id="auszeit" class="border-2 border-charcoal border-t-4 border-t-pine bg-paper shadow-hard flex flex-col scroll-mt-24">
       <!-- PASTE PHOTO: replace the placeholder <div> below with an <img src="images/auszeit-01.jpg" alt="..."> of Ferienwohnung Auszeit -->
       <div class="aspect-[4/3] border-b-2 border-charcoal bg-sky/10 flex items-center justify-center relative">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-60" aria-hidden="true"><path d="M4 20C4 20 6 14 12 14C18 14 20 20 20 20" stroke="#3E4C3B" stroke-width="1.6"/><circle cx="12" cy="8" r="4" stroke="#4C7A93" stroke-width="1.6"/></svg>
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" class="opacity-60" aria-hidden="true"><path d="M4 20C4 20 6 14 12 14C18 14 20 20 20 20" stroke="#2F4A34" stroke-width="1.6"/><circle cx="12" cy="8" r="4" stroke="#4A7B8C" stroke-width="1.6"/></svg>
         <span class="absolute bottom-3 left-3 text-xs font-display font-bold bg-cream border-2 border-charcoal px-2 py-1" data-i18n="properties.photoPlaceholder2">Add photo: Ferienwohnung Auszeit</span>
       </div>
 
@@ -258,7 +274,7 @@
         <p class="text-pine font-display font-bold text-sm mb-4" data-i18n="auszeit.location">Quiet street, edge of the forest</p>
 
         <p class="text-slate leading-relaxed mb-6" data-i18n="auszeit.desc">
-          Cosy, intimate and built for slowing down. The flat sits on a play street with a strict 5 km/h limit, so the loudest thing you'll hear is the door onto the trail — hiking paths start right outside.
+          Cosy, intimate and built for slowing down. The flat sits on a play street with a strict 5 km/h limit, so the loudest thing you'll hear is the door onto the trail, hiking paths start right outside.
         </p>
 
         <!-- Amenity tags -->
@@ -334,54 +350,68 @@
   <div class="max-w-xl mb-12">
     <p class="font-display font-bold text-rust text-sm mb-3" data-i18n="nearby.eyebrow">Sights &amp; day trips</p>
     <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="nearby.headline">What's actually worth your time nearby</h2>
-    <p class="text-slate leading-relaxed" data-i18n="nearby.sub">A short, honest list — not everything within an hour's drive, just the places guests keep coming back and telling us about.</p>
+    <p class="text-slate leading-relaxed" data-i18n="nearby.sub">A short, honest list, not everything within an hour's drive, just the places guests keep coming back and telling us about.</p>
   </div>
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
-      <p class="text-xs font-display font-bold text-sky mb-2" data-i18n="nearby.item1.tag">~15 min drive</p>
-      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item1.title">Königssee</h3>
-      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item1.desc">A fjord-like alpine lake with electric boats — the crossing to the onion-domed chapel at St. Bartholomä is the classic first trip.</p>
+    <div class="border-2 border-charcoal bg-paper flex flex-col">
+      <p class="text-xs font-display font-bold text-cream bg-sky px-3 py-1.5" data-i18n="nearby.item1.tag">~15 min drive</p>
+      <div class="p-6 flex flex-col flex-1">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item1.title">Königssee</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item1.desc">A fjord-like alpine lake with electric boats, the crossing to the onion-domed chapel at St. Bartholomä is the classic first trip.</p>
+      </div>
     </div>
 
-    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
-      <p class="text-xs font-display font-bold text-gold mb-2" data-i18n="nearby.item2.tag">~20 min drive + shuttle bus</p>
-      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item2.title">Kehlsteinhaus (Eagle's Nest)</h3>
-      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item2.desc">A historic building on a mountain ridge with a panoramic terrace over the whole valley. Open seasonally, roughly May to October.</p>
+    <div class="border-2 border-charcoal bg-paper flex flex-col">
+      <p class="text-xs font-display font-bold text-charcoal bg-gold px-3 py-1.5" data-i18n="nearby.item2.tag">~20 min drive + shuttle bus</p>
+      <div class="p-6 flex flex-col flex-1">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item2.title">Kehlsteinhaus (Eagle's Nest)</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item2.desc">A historic building on a mountain ridge with a panoramic terrace over the whole valley. Open seasonally, roughly May to October.</p>
+      </div>
     </div>
 
-    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
-      <p class="text-xs font-display font-bold text-pine mb-2" data-i18n="nearby.item3.tag">From the doorstep</p>
-      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item3.title">Watzmann hiking trails</h3>
-      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item3.desc">Everything from flat valley walks to the multi-day Watzmann traverse starts within the national park, minutes from both flats.</p>
+    <div class="border-2 border-charcoal bg-paper flex flex-col">
+      <p class="text-xs font-display font-bold text-cream bg-pine px-3 py-1.5" data-i18n="nearby.item3.tag">From the doorstep</p>
+      <div class="p-6 flex flex-col flex-1">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item3.title">Watzmann hiking trails</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item3.desc">Everything from flat valley walks to the multi-day Watzmann traverse starts within the national park, minutes from both flats.</p>
+      </div>
     </div>
 
-    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
-      <p class="text-xs font-display font-bold text-rust mb-2" data-i18n="nearby.item4.tag">~15 min drive</p>
-      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item4.title">Rossfeld panoramic road</h3>
-      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item4.desc">Germany's highest through-road, tracing the Austrian border with pull-offs for wide views of the Watzmann and Hoher Göll.</p>
+    <div class="border-2 border-charcoal bg-paper flex flex-col">
+      <p class="text-xs font-display font-bold text-cream bg-rust px-3 py-1.5" data-i18n="nearby.item4.tag">~15 min drive</p>
+      <div class="p-6 flex flex-col flex-1">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item4.title">Rossfeld panoramic road</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item4.desc">Germany's highest through-road, tracing the Austrian border with pull-offs for wide views of the Watzmann and Hoher Göll.</p>
+      </div>
     </div>
 
-    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
-      <p class="text-xs font-display font-bold text-sky mb-2" data-i18n="nearby.item5.tag">~10 min drive</p>
-      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item5.title">Berchtesgaden salt mine</h3>
-      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item5.desc">An underground tour through centuries-old salt tunnels, including a slide and a short boat crossing — a solid rainy-day option, good for most ages.</p>
+    <div class="border-2 border-charcoal bg-paper flex flex-col">
+      <p class="text-xs font-display font-bold text-cream bg-sky px-3 py-1.5" data-i18n="nearby.item5.tag">~10 min drive</p>
+      <div class="p-6 flex flex-col flex-1">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item5.title">Berchtesgaden salt mine</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item5.desc">An underground tour through centuries-old salt tunnels, including a slide and a short boat crossing, a solid rainy-day option, good for most ages.</p>
+      </div>
     </div>
 
-    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
-      <p class="text-xs font-display font-bold text-gold mb-2" data-i18n="nearby.item6.tag">~10 min drive</p>
-      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item6.title">Obersalzberg Documentation Centre</h3>
-      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item6.desc">A museum covering the region's 20th-century history in detail, with remnants of wartime tunnel systems open to visit beneath it.</p>
+    <div class="border-2 border-charcoal bg-paper flex flex-col">
+      <p class="text-xs font-display font-bold text-charcoal bg-gold px-3 py-1.5" data-i18n="nearby.item6.tag">~10 min drive</p>
+      <div class="p-6 flex flex-col flex-1">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item6.title">Obersalzberg Documentation Centre</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item6.desc">A museum covering the region's 20th-century history in detail, with remnants of wartime tunnel systems open to visit beneath it.</p>
+      </div>
     </div>
 
   </div>
 </section>
 
+<div class="alpine-trim" aria-hidden="true"></div>
+
 <!-- =========================================================
      GOOD TO KNOW / PRACTICAL INFO
 ========================================================= -->
-<section id="good-to-know" class="border-y-2 border-charcoal bg-pine/10">
+<section id="good-to-know" class="bg-pine/15">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
     <div class="max-w-xl mb-12">
       <p class="font-display font-bold text-pine text-sm mb-3" data-i18n="practical.eyebrow">Good to know</p>
@@ -389,25 +419,25 @@
     </div>
 
     <div class="grid sm:grid-cols-2 gap-8">
-      <div class="border-2 border-charcoal bg-cream p-6">
+      <div class="border-2 border-charcoal border-t-4 border-t-sky bg-cream p-6">
         <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item1.title">Getting here</h3>
         <!-- CONFIRM DETAILS: adjust travel times/airports below if not accurate for your exact address -->
         <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item1.desc">Salzburg Airport is about 45 minutes away, Munich Airport around two hours by car. Berchtesgaden also has its own train station with regular regional connections.</p>
       </div>
 
-      <div class="border-2 border-charcoal bg-cream p-6">
+      <div class="border-2 border-charcoal border-t-4 border-t-gold bg-cream p-6">
         <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item2.title">Guest card &amp; buses</h3>
         <!-- CONFIRM DETAILS: replace with the exact terms of the regional guest card your local tourism office issues -->
-        <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item2.desc">Overnight guests in the Berchtesgadener Land typically receive a regional guest card, which covers local bus travel — handy for reaching Königssee or the valley trailheads without a car.</p>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item2.desc">Overnight guests in the Berchtesgadener Land typically receive a regional guest card, which covers local bus travel, handy for reaching Königssee or the valley trailheads without a car.</p>
       </div>
 
-      <div class="border-2 border-charcoal bg-cream p-6">
+      <div class="border-2 border-charcoal border-t-4 border-t-rust bg-cream p-6">
         <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item3.title">Parking &amp; arrival</h3>
         <!-- CONFIRM DETAILS: replace with your actual parking arrangement and check-in process -->
         <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item3.desc">Private parking is available at both apartments. We'll send exact check-in instructions and directions a few days before arrival.</p>
       </div>
 
-      <div class="border-2 border-charcoal bg-cream p-6">
+      <div class="border-2 border-charcoal border-t-4 border-t-pine bg-cream p-6">
         <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item4.title">When to visit</h3>
         <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item4.desc">Summer suits hiking and lake days; winter brings skiing at the Jenner and Rossfeld. Spring and autumn are quieter, with the trails mostly to yourself.</p>
       </div>
@@ -415,16 +445,18 @@
   </div>
 </section>
 
+<div class="alpine-trim" aria-hidden="true"></div>
+
 <!-- =========================================================
      ABOUT
 ========================================================= -->
-<section id="about" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+<section id="about" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24 bg-sky/5">
   <div class="grid md:grid-cols-[1fr_1.3fr] gap-12 items-start">
     <div>
       <p class="font-display font-bold text-pine text-sm mb-3" data-i18n="about.eyebrow">About us</p>
       <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight" data-i18n="about.headline">Two flats, run by people who live here</h2>
     </div>
-    <div class="border-l-2 border-charcoal pl-8">
+    <div class="border-l-4 border-rust pl-8">
       <p class="text-slate leading-relaxed mb-4" data-i18n="about.p1">
         We manage both apartments directly, so questions get answered by someone who actually knows the building, the street and the best time to walk up to the Watzmann viewpoint — not a call centre.
       </p>
@@ -435,40 +467,42 @@
   </div>
 </section>
 
+<div class="alpine-trim" aria-hidden="true"></div>
+
 <!-- =========================================================
      FOOTER
 ========================================================= -->
-<footer id="contact" class="border-t-4 border-rust bg-paper">
+<footer id="contact" class="bg-pine text-cream">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16">
     <div class="grid sm:grid-cols-3 gap-10 mb-12">
 
       <div>
         <p class="font-display font-bold text-xl mb-3">Watzmann Stay</p>
-        <p class="text-slate text-sm leading-relaxed" data-i18n="footer.tagline">Two apartments in Berchtesgaden — one central and versatile, one quiet and made for couples.</p>
+        <p class="text-cream/75 text-sm leading-relaxed" data-i18n="footer.tagline">Two apartments in Berchtesgaden — one central and versatile, one quiet and made for couples.</p>
       </div>
 
       <div>
-        <p class="font-display font-bold text-sm mb-4" data-i18n="footer.navTitle">Quick links</p>
-        <ul class="space-y-2 text-sm text-slate">
-          <li><a href="#properties" class="hover:text-rust" data-i18n="nav.properties">Properties</a></li>
-          <li><a href="#location" class="hover:text-rust" data-i18n="nav.location">Location</a></li>
-          <li><a href="#nearby" class="hover:text-rust" data-i18n="nav.nearby">Nearby</a></li>
-          <li><a href="#about" class="hover:text-rust" data-i18n="nav.about">About</a></li>
+        <p class="font-display font-bold text-sm mb-4 text-gold" data-i18n="footer.navTitle">Quick links</p>
+        <ul class="space-y-2 text-sm text-cream/75">
+          <li><a href="#properties" class="hover:text-gold" data-i18n="nav.properties">Properties</a></li>
+          <li><a href="#location" class="hover:text-gold" data-i18n="nav.location">Location</a></li>
+          <li><a href="#nearby" class="hover:text-gold" data-i18n="nav.nearby">Nearby</a></li>
+          <li><a href="#about" class="hover:text-gold" data-i18n="nav.about">About</a></li>
         </ul>
       </div>
 
       <div>
-        <p class="font-display font-bold text-sm mb-4" data-i18n="footer.contactTitle">Contact</p>
-        <ul class="space-y-2 text-sm text-slate">
+        <p class="font-display font-bold text-sm mb-4 text-gold" data-i18n="footer.contactTitle">Contact</p>
+        <ul class="space-y-2 text-sm text-cream/75">
           <!-- PASTE CONTACT INFO: replace with your real email and phone number -->
-          <li><a href="mailto:info@watzmann-stay.example" class="hover:text-rust">info@watzmann-stay.example</a></li>
-          <li><a href="tel:+498652000000" class="hover:text-rust">+49 8652 000000</a></li>
+          <li><a href="mailto:info@watzmann-stay.example" class="hover:text-gold">info@watzmann-stay.example</a></li>
+          <li><a href="tel:+498652000000" class="hover:text-gold">+49 8652 000000</a></li>
           <li class="pt-2 flex gap-3">
             <!-- PASTE SOCIAL LINKS: replace # with real profile URLs -->
-            <a href="#" aria-label="Instagram" class="border-2 border-charcoal w-8 h-8 flex items-center justify-center hover:bg-charcoal hover:text-cream transition-colors">
+            <a href="#" aria-label="Instagram" class="border-2 border-cream w-8 h-8 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-charcoal transition-colors">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg>
             </a>
-            <a href="#" aria-label="Facebook" class="border-2 border-charcoal w-8 h-8 flex items-center justify-center hover:bg-charcoal hover:text-cream transition-colors">
+            <a href="#" aria-label="Facebook" class="border-2 border-cream w-8 h-8 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-charcoal transition-colors">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 21V13H17L17.5 9.5H14V7.3C14 6.3 14.3 5.6 15.7 5.6H17.6V2.5C17.3 2.4 16.2 2.3 15 2.3C12.4 2.3 10.6 3.9 10.6 6.9V9.5H7.7V13H10.6V21H14Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
             </a>
           </li>
@@ -476,7 +510,7 @@
       </div>
     </div>
 
-    <div class="border-t-2 border-charcoal pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-slate">
+    <div class="border-t-2 border-cream/30 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-cream/60">
       <p><span id="year"></span> Watzmann Stay. <span data-i18n="footer.rights">All rights reserved.</span></p>
       <p data-i18n="footer.note">Ferienwohnung Watzmann &amp; Ferienwohnung Auszeit, Berchtesgaden.</p>
     </div>
@@ -516,14 +550,14 @@
 
       'hero.eyebrow': 'Berchtesgaden Alps',
       'hero.headline': 'Two apartments. One mountain range worth coming back to.',
-      'hero.sub': "A central, versatile flat in the heart of Berchtesgaden and a quiet, romantic hideaway on the edge of the forest — pick the one that fits your trip.",
+      'hero.sub': "A central, versatile flat in the heart of Berchtesgaden and a quiet, romantic hideaway on the edge of the forest, pick the one that fits your trip.",
       'hero.cta1': 'View Ferienwohnung Watzmann',
       'hero.cta2': 'View Ferienwohnung Auszeit',
       'hero.imgcaption': 'Watzmann massif, Berchtesgaden',
 
       'properties.eyebrow': 'The apartments',
       'properties.headline': 'Two very different bases for two very different trips',
-      'properties.sub': "Both flats are fully equipped and privately owned — no shared entrances, no surprises. Choose by vibe, not just by square metres.",
+      'properties.sub': "Both flats are fully equipped and privately owned, no shared entrances, no surprises. Choose by vibe, not just by square metres.",
       'properties.photoPlaceholder': 'Add photo: Ferienwohnung Watzmann',
       'properties.photoPlaceholder2': 'Add photo: Ferienwohnung Auszeit',
 
@@ -561,10 +595,10 @@
 
       'nearby.eyebrow': 'Sights & day trips',
       'nearby.headline': "What's actually worth your time nearby",
-      'nearby.sub': "A short, honest list — not everything within an hour's drive, just the places guests keep coming back and telling us about.",
+      'nearby.sub': "A short, honest list, not everything within an hour's drive, just the places guests keep coming back and telling us about.",
       'nearby.item1.tag': '~15 min drive',
       'nearby.item1.title': 'Königssee',
-      'nearby.item1.desc': 'A fjord-like alpine lake with electric boats — the crossing to the onion-domed chapel at St. Bartholomä is the classic first trip.',
+      'nearby.item1.desc': 'A fjord-like alpine lake with electric boats, the crossing to the onion-domed chapel at St. Bartholomä is the classic first trip.',
       'nearby.item2.tag': '~20 min drive + shuttle bus',
       'nearby.item2.title': "Kehlsteinhaus (Eagle's Nest)",
       'nearby.item2.desc': 'A historic building on a mountain ridge with a panoramic terrace over the whole valley. Open seasonally, roughly May to October.',
@@ -576,7 +610,7 @@
       'nearby.item4.desc': "Germany's highest through-road, tracing the Austrian border with pull-offs for wide views of the Watzmann and Hoher Göll.",
       'nearby.item5.tag': '~10 min drive',
       'nearby.item5.title': 'Berchtesgaden salt mine',
-      'nearby.item5.desc': 'An underground tour through centuries-old salt tunnels, including a slide and a short boat crossing — a solid rainy-day option, good for most ages.',
+      'nearby.item5.desc': 'An underground tour through centuries-old salt tunnels, including a slide and a short boat crossing, a solid rainy-day option, good for most ages.',
       'nearby.item6.tag': '~10 min drive',
       'nearby.item6.title': 'Obersalzberg Documentation Centre',
       'nearby.item6.desc': "A museum covering the region's 20th-century history in detail, with remnants of wartime tunnel systems open to visit beneath it.",
@@ -586,7 +620,7 @@
       'practical.item1.title': 'Getting here',
       'practical.item1.desc': 'Salzburg Airport is about 45 minutes away, Munich Airport around two hours by car. Berchtesgaden also has its own train station with regular regional connections.',
       'practical.item2.title': 'Guest card & buses',
-      'practical.item2.desc': 'Overnight guests in the Berchtesgadener Land typically receive a regional guest card, which covers local bus travel — handy for reaching Königssee or the valley trailheads without a car.',
+      'practical.item2.desc': 'Overnight guests in the Berchtesgadener Land typically receive a regional guest card, which covers local bus travel, handy for reaching Königssee or the valley trailheads without a car.',
       'practical.item3.title': 'Parking & arrival',
       'practical.item3.desc': "Private parking is available at both apartments. We'll send exact check-in instructions and directions a few days before arrival.",
       'practical.item4.title': 'When to visit',
@@ -614,19 +648,19 @@
 
       'hero.eyebrow': 'Berchtesgadener Alpen',
       'hero.headline': 'Zwei Wohnungen. Ein Bergpanorama, zu dem man gerne zurückkehrt.',
-      'hero.sub': 'Eine zentrale, vielseitige Wohnung mitten in Berchtesgaden und ein ruhiges, romantisches Rückzugsziel am Waldrand — wählen Sie, was zu Ihrer Reise passt.',
+      'hero.sub': 'Eine zentrale, vielseitige Wohnung mitten in Berchtesgaden und ein ruhiges, romantisches Rückzugsziel am Waldrand, wählen Sie, was zu Ihrer Reise passt.',
       'hero.cta1': 'Ferienwohnung Watzmann ansehen',
       'hero.cta2': 'Ferienwohnung Auszeit ansehen',
       'hero.imgcaption': 'Watzmann-Massiv, Berchtesgaden',
 
       'properties.eyebrow': 'Die Wohnungen',
       'properties.headline': 'Zwei sehr unterschiedliche Ausgangspunkte für zwei sehr unterschiedliche Reisen',
-      'properties.sub': 'Beide Wohnungen sind vollständig ausgestattet und in privater Hand — keine geteilten Eingänge, keine Überraschungen. Wählen Sie nach Atmosphäre, nicht nur nach Quadratmetern.',
+      'properties.sub': 'Beide Wohnungen sind vollständig ausgestattet und in privater Hand, keine geteilten Eingänge, keine Überraschungen. Wählen Sie nach Atmosphäre, nicht nur nach Quadratmetern.',
       'properties.photoPlaceholder': 'Foto einfügen: Ferienwohnung Watzmann',
       'properties.photoPlaceholder2': 'Foto einfügen: Ferienwohnung Auszeit',
 
       'watzmann.location': 'Zentral in Berchtesgaden',
-      'watzmann.desc': 'Eine moderne, vielseitige Wohnung mitten im Ortskern. Direkt vor der Tür finden Sie Geschäfte, Restaurants und den Marktplatz — ideal für Familien, Freundesgruppen oder alle, die alles fußläufig erreichen möchten.',
+      'watzmann.desc': 'Eine moderne, vielseitige Wohnung mitten im Ortskern. Direkt vor der Tür finden Sie Geschäfte, Restaurants und den Marktplatz, ideal für Familien, Freundesgruppen oder alle, die alles fußläufig erreichen möchten.',
       'watzmann.tag1': 'Zentrale Lage',
       'watzmann.tag2': '2 Schlafzimmer',
       'watzmann.tag3': 'Vollküche',
@@ -636,7 +670,7 @@
       'watzmann.book': 'Buchen über Booking.com',
 
       'auszeit.location': 'Ruhige Straße am Waldrand',
-      'auszeit.desc': 'Gemütlich, intim und ganz auf Entschleunigung ausgelegt. Die Wohnung liegt an einer Spielstraße mit striktem Tempo-5-Limit — direkt vor der Tür beginnen die Wanderwege.',
+      'auszeit.desc': 'Gemütlich, intim und ganz auf Entschleunigung ausgelegt. Die Wohnung liegt an einer Spielstraße mit striktem Tempo-5-Limit, direkt vor der Tür beginnen die Wanderwege.',
       'auszeit.tag1': 'Sehr ruhige Straße',
       'auszeit.tag2': 'Spielstraße',
       'auszeit.tag3': 'Direkter Wanderwegzugang',
@@ -648,8 +682,8 @@
       'location.eyebrow': 'Wo Sie wohnen',
       'location.headline': 'Berchtesgaden, zwischen Watzmann und Königssee',
       'location.p1': 'Beide Wohnungen liegen im Berchtesgadener Land, wo die Berge am Ortsrand beginnen und nicht erst nach einer Autostunde. Wanderwege, Bergseen und Almhütten sind zu Fuß oder mit einer kurzen Fahrt erreichbar.',
-      'location.p2': 'Salzburg ist etwa 30 Minuten mit dem Auto entfernt, falls Sie einen Stadttag einlegen möchten — die meisten Gäste bleiben aber ganz im Tal.',
-      'location.p3': 'Die gesamte Region liegt im einzigen Alpen-Nationalpark Deutschlands — der Blick aus dem Fenster ist oft derselbe, in den Sie am Nachmittag hineinwandern.',
+      'location.p2': 'Salzburg ist etwa 30 Minuten mit dem Auto entfernt, falls Sie einen Stadttag einlegen möchten, die meisten Gäste bleiben aber ganz im Tal.',
+      'location.p3': 'Die gesamte Region liegt im einzigen Alpen-Nationalpark Deutschlands, der Blick aus dem Fenster ist oft derselbe, in den Sie am Nachmittag hineinwandern.',
       'location.stat1': 'Watzmann-Gipfel, sichtbar vom Ort aus',
       'location.stat2num': 'Spielstraße',
       'location.stat2': 'Direkt vor der Ferienwohnung Auszeit',
@@ -662,19 +696,19 @@
       'nearby.sub': 'Eine kurze, ehrliche Auswahl — nicht alles, was in einer Autostunde erreichbar ist, sondern das, wovon Gäste uns am häufigsten erzählen.',
       'nearby.item1.tag': '~15 Min. Fahrt',
       'nearby.item1.title': 'Königssee',
-      'nearby.item1.desc': 'Ein fjordähnlicher Alpensee mit elektrisch betriebenen Booten — die Überfahrt zur Zwiebelturm-Kapelle St. Bartholomä ist der klassische erste Ausflug.',
+      'nearby.item1.desc': 'Ein fjordähnlicher Alpensee mit elektrisch betriebenen Booten, die Überfahrt zur Zwiebelturm-Kapelle St. Bartholomä ist der klassische erste Ausflug.',
       'nearby.item2.tag': '~20 Min. Fahrt + Zubringerbus',
       'nearby.item2.title': 'Kehlsteinhaus',
       'nearby.item2.desc': 'Ein historisches Gebäude auf einem Bergrücken mit Panoramaterrasse über das ganze Tal. Saisonal geöffnet, etwa von Mai bis Oktober.',
       'nearby.item3.tag': 'Direkt vor der Tür',
       'nearby.item3.title': 'Watzmann-Wanderwege',
-      'nearby.item3.desc': 'Von flachen Talwegen bis zur mehrtägigen Watzmann-Überschreitung — alles beginnt im Nationalpark, wenige Minuten von beiden Wohnungen entfernt.',
+      'nearby.item3.desc': 'Von flachen Talwegen bis zur mehrtägigen Watzmann-Überschreitung, alles beginnt im Nationalpark, wenige Minuten von beiden Wohnungen entfernt.',
       'nearby.item4.tag': '~15 Min. Fahrt',
       'nearby.item4.title': 'Rossfeld-Panoramastraße',
       'nearby.item4.desc': 'Deutschlands höchste durchgehende Straße, entlang der österreichischen Grenze, mit Ausblicken auf Watzmann und Hohen Göll.',
       'nearby.item5.tag': '~10 Min. Fahrt',
       'nearby.item5.title': 'Salzbergwerk Berchtesgaden',
-      'nearby.item5.desc': 'Eine unterirdische Führung durch jahrhundertealte Salzstollen, inklusive Rutsche und kurzer Bootsfahrt — eine gute Option bei Regen, für fast jedes Alter geeignet.',
+      'nearby.item5.desc': 'Eine unterirdische Führung durch jahrhundertealte Salzstollen, inklusive Rutsche und kurzer Bootsfahrt, eine gute Option bei Regen, für fast jedes Alter geeignet.',
       'nearby.item6.tag': '~10 Min. Fahrt',
       'nearby.item6.title': 'Dokumentation Obersalzberg',
       'nearby.item6.desc': 'Ein Museum zur Geschichte der Region im 20. Jahrhundert, mit Resten der Stollenanlagen aus der Kriegszeit, die darunter besichtigt werden können.',
@@ -684,18 +718,18 @@
       'practical.item1.title': 'Anreise',
       'practical.item1.desc': 'Der Flughafen Salzburg ist etwa 45 Minuten entfernt, München etwa zwei Autostunden. Berchtesgaden hat außerdem einen eigenen Bahnhof mit regelmäßigen Regionalverbindungen.',
       'practical.item2.title': 'Gästekarte & Busse',
-      'practical.item2.desc': 'Übernachtungsgäste im Berchtesgadener Land erhalten in der Regel eine regionale Gästekarte, die die lokalen Busse abdeckt — praktisch für Königssee oder die Wanderparkplätze im Tal, auch ohne Auto.',
+      'practical.item2.desc': 'Übernachtungsgäste im Berchtesgadener Land erhalten in der Regel eine regionale Gästekarte, die die lokalen Busse abdeckt, praktisch für Königssee oder die Wanderparkplätze im Tal, auch ohne Auto.',
       'practical.item3.title': 'Parken & Ankunft',
       'practical.item3.desc': 'An beiden Wohnungen steht privater Parkplatz zur Verfügung. Die genauen Check-in-Hinweise und die Anfahrt senden wir Ihnen einige Tage vor Anreise zu.',
       'practical.item4.title': 'Beste Reisezeit',
-      'practical.item4.desc': 'Der Sommer eignet sich für Wandern und Seetage, im Winter locken Jenner und Rossfeld zum Skifahren. Frühling und Herbst sind ruhiger — die Wege dann oft für sich allein.',
+      'practical.item4.desc': 'Der Sommer eignet sich für Wandern und Seetage, im Winter locken Jenner und Rossfeld zum Skifahren. Frühling und Herbst sind ruhiger, die Wege hat man dann oft für sich allein.',
 
       'about.eyebrow': 'Über uns',
       'about.headline': 'Zwei Wohnungen, geführt von Menschen, die hier leben',
-      'about.p1': 'Wir verwalten beide Wohnungen persönlich, deshalb beantwortet Ihre Fragen jemand, der das Haus, die Straße und den besten Zeitpunkt für den Aufstieg zum Watzmann-Aussichtspunkt wirklich kennt — kein Callcenter.',
+      'about.p1': 'Wir verwalten beide Wohnungen persönlich, deshalb beantwortet Ihre Fragen jemand, der das Haus, die Straße und den besten Zeitpunkt für den Aufstieg zum Watzmann-Aussichtspunkt wirklich kennt, kein Callcenter.',
       'about.p2': 'Jede Wohnung wird zwischen den Aufenthalten gereinigt und vorbereitet, und wir sind während Ihres Besuchs jederzeit erreichbar.',
 
-      'footer.tagline': 'Zwei Wohnungen in Berchtesgaden — eine zentral und vielseitig, eine ruhig und für Paare gemacht.',
+      'footer.tagline': 'Zwei Wohnungen in Berchtesgaden, eine zentral und vielseitig, eine ruhig und für Paare gemacht.',
       'footer.navTitle': 'Schnellzugriff',
       'footer.contactTitle': 'Kontakt',
       'footer.rights': 'Alle Rechte vorbehalten.',
