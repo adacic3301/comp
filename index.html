@@ -104,6 +104,7 @@
       <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
         <a href="#properties" class="hover:text-rust transition-colors" data-i18n="nav.properties">Properties</a>
         <a href="#location" class="hover:text-rust transition-colors" data-i18n="nav.location">Location</a>
+        <a href="#nearby" class="hover:text-rust transition-colors" data-i18n="nav.nearby">Nearby</a>
         <a href="#about" class="hover:text-rust transition-colors" data-i18n="nav.about">About</a>
         <a href="#contact" class="hover:text-rust transition-colors" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -131,6 +132,7 @@
     <nav id="mobile-menu" class="md:hidden hidden pb-5 flex flex-col gap-4 font-medium text-sm border-t-2 border-charcoal pt-4">
       <a href="#properties" class="hover:text-rust" data-i18n="nav.properties">Properties</a>
       <a href="#location" class="hover:text-rust" data-i18n="nav.location">Location</a>
+      <a href="#nearby" class="hover:text-rust" data-i18n="nav.nearby">Nearby</a>
       <a href="#about" class="hover:text-rust" data-i18n="nav.about">About</a>
       <a href="#contact" class="hover:text-rust" data-i18n="nav.contact">Contact</a>
       <a href="#properties" class="inline-block bg-rust text-cream border-2 border-charcoal font-display font-bold text-sm px-4 py-2 text-center shadow-hard-sm press-hard" data-i18n="nav.cta">Check availability</a>
@@ -227,7 +229,7 @@
           <span class="text-xs font-display font-bold border-2 border-charcoal bg-gold/25 px-2.5 py-1" data-i18n="watzmann.tag3">Full kitchen</span>
           <span class="text-xs font-display font-bold border-2 border-charcoal bg-rust/15 px-2.5 py-1" data-i18n="watzmann.tag4">Family friendly</span>
           <span class="text-xs font-display font-bold border-2 border-charcoal bg-gold/25 px-2.5 py-1" data-i18n="watzmann.tag5">Free WiFi</span>
-          <span class="text-xs font-display font-bold border-2 border-charcoal bg-rust/15 px-2.5 py-1" data-i18n="watzmann.tag6">Balcony</span>
+          <span class="text-xs font-display font-bold border-2 border-charcoal bg-rust/15 px-2.5 py-1" data-i18n="watzmann.tag6">Terrace</span>
         </div>
 
         <div class="mt-auto">
@@ -298,6 +300,9 @@
         <p class="text-cream/80 leading-relaxed" data-i18n="location.p2">
           Salzburg is roughly 30 minutes away by car if you want a city day, but most guests find they don't need to leave the valley at all.
         </p>
+        <p class="text-cream/80 leading-relaxed mt-6" data-i18n="location.p3">
+          The whole area sits inside Germany's only alpine national park, so the view from the window tends to be the same one you'll be hiking into that afternoon.
+        </p>
       </div>
 
       <div class="grid grid-cols-2 gap-4 sm:gap-5 content-start">
@@ -317,6 +322,94 @@
           <p class="font-display font-bold text-2xl mb-1 text-cream" data-i18n="location.stat4num">On foot</p>
           <p class="text-sm text-cream/70" data-i18n="location.stat4">Hiking trails from the doorstep</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     NEARBY / SIGHTS
+========================================================= -->
+<section id="nearby" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+  <div class="max-w-xl mb-12">
+    <p class="font-display font-bold text-rust text-sm mb-3" data-i18n="nearby.eyebrow">Sights &amp; day trips</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="nearby.headline">What's actually worth your time nearby</h2>
+    <p class="text-slate leading-relaxed" data-i18n="nearby.sub">A short, honest list — not everything within an hour's drive, just the places guests keep coming back and telling us about.</p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
+      <p class="text-xs font-display font-bold text-sky mb-2" data-i18n="nearby.item1.tag">~15 min drive</p>
+      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item1.title">Königssee</h3>
+      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item1.desc">A fjord-like alpine lake with electric boats — the crossing to the onion-domed chapel at St. Bartholomä is the classic first trip.</p>
+    </div>
+
+    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
+      <p class="text-xs font-display font-bold text-gold mb-2" data-i18n="nearby.item2.tag">~20 min drive + shuttle bus</p>
+      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item2.title">Kehlsteinhaus (Eagle's Nest)</h3>
+      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item2.desc">A historic building on a mountain ridge with a panoramic terrace over the whole valley. Open seasonally, roughly May to October.</p>
+    </div>
+
+    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
+      <p class="text-xs font-display font-bold text-pine mb-2" data-i18n="nearby.item3.tag">From the doorstep</p>
+      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item3.title">Watzmann hiking trails</h3>
+      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item3.desc">Everything from flat valley walks to the multi-day Watzmann traverse starts within the national park, minutes from both flats.</p>
+    </div>
+
+    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
+      <p class="text-xs font-display font-bold text-rust mb-2" data-i18n="nearby.item4.tag">~15 min drive</p>
+      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item4.title">Rossfeld panoramic road</h3>
+      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item4.desc">Germany's highest through-road, tracing the Austrian border with pull-offs for wide views of the Watzmann and Hoher Göll.</p>
+    </div>
+
+    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
+      <p class="text-xs font-display font-bold text-sky mb-2" data-i18n="nearby.item5.tag">~10 min drive</p>
+      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item5.title">Berchtesgaden salt mine</h3>
+      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item5.desc">An underground tour through centuries-old salt tunnels, including a slide and a short boat crossing — a solid rainy-day option, good for most ages.</p>
+    </div>
+
+    <div class="border-2 border-charcoal bg-paper p-6 flex flex-col">
+      <p class="text-xs font-display font-bold text-gold mb-2" data-i18n="nearby.item6.tag">~10 min drive</p>
+      <h3 class="font-display font-bold text-lg mb-2" data-i18n="nearby.item6.title">Obersalzberg Documentation Centre</h3>
+      <p class="text-slate text-sm leading-relaxed" data-i18n="nearby.item6.desc">A museum covering the region's 20th-century history in detail, with remnants of wartime tunnel systems open to visit beneath it.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     GOOD TO KNOW / PRACTICAL INFO
+========================================================= -->
+<section id="good-to-know" class="border-y-2 border-charcoal bg-pine/10">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="max-w-xl mb-12">
+      <p class="font-display font-bold text-pine text-sm mb-3" data-i18n="practical.eyebrow">Good to know</p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight" data-i18n="practical.headline">Planning the practical side of the trip</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-8">
+      <div class="border-2 border-charcoal bg-cream p-6">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item1.title">Getting here</h3>
+        <!-- CONFIRM DETAILS: adjust travel times/airports below if not accurate for your exact address -->
+        <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item1.desc">Salzburg Airport is about 45 minutes away, Munich Airport around two hours by car. Berchtesgaden also has its own train station with regular regional connections.</p>
+      </div>
+
+      <div class="border-2 border-charcoal bg-cream p-6">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item2.title">Guest card &amp; buses</h3>
+        <!-- CONFIRM DETAILS: replace with the exact terms of the regional guest card your local tourism office issues -->
+        <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item2.desc">Overnight guests in the Berchtesgadener Land typically receive a regional guest card, which covers local bus travel — handy for reaching Königssee or the valley trailheads without a car.</p>
+      </div>
+
+      <div class="border-2 border-charcoal bg-cream p-6">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item3.title">Parking &amp; arrival</h3>
+        <!-- CONFIRM DETAILS: replace with your actual parking arrangement and check-in process -->
+        <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item3.desc">Private parking is available at both apartments. We'll send exact check-in instructions and directions a few days before arrival.</p>
+      </div>
+
+      <div class="border-2 border-charcoal bg-cream p-6">
+        <h3 class="font-display font-bold text-lg mb-2" data-i18n="practical.item4.title">When to visit</h3>
+        <p class="text-slate text-sm leading-relaxed" data-i18n="practical.item4.desc">Summer suits hiking and lake days; winter brings skiing at the Jenner and Rossfeld. Spring and autumn are quieter, with the trails mostly to yourself.</p>
       </div>
     </div>
   </div>
@@ -359,6 +452,7 @@
         <ul class="space-y-2 text-sm text-slate">
           <li><a href="#properties" class="hover:text-rust" data-i18n="nav.properties">Properties</a></li>
           <li><a href="#location" class="hover:text-rust" data-i18n="nav.location">Location</a></li>
+          <li><a href="#nearby" class="hover:text-rust" data-i18n="nav.nearby">Nearby</a></li>
           <li><a href="#about" class="hover:text-rust" data-i18n="nav.about">About</a></li>
         </ul>
       </div>
@@ -418,6 +512,7 @@
       'nav.about': 'About',
       'nav.contact': 'Contact',
       'nav.cta': 'Check availability',
+      'nav.nearby': 'Nearby',
 
       'hero.eyebrow': 'Berchtesgaden Alps',
       'hero.headline': 'Two apartments. One mountain range worth coming back to.',
@@ -439,7 +534,7 @@
       'watzmann.tag3': 'Full kitchen',
       'watzmann.tag4': 'Family friendly',
       'watzmann.tag5': 'Free WiFi',
-      'watzmann.tag6': 'Balcony',
+      'watzmann.tag6': 'Terrace',
       'watzmann.book': 'Book via Booking.com',
 
       'auszeit.location': 'Quiet street, edge of the forest',
@@ -456,12 +551,46 @@
       'location.headline': 'Berchtesgaden, between the Watzmann and the Königssee',
       'location.p1': "Both flats sit inside the Berchtesgadener Land, a stretch of Bavaria where the mountains start at the edge of town rather than an hour's drive away. Trailheads, alpine lakes and mountain huts are close enough to reach on foot or with a short drive.",
       'location.p2': "Salzburg is roughly 30 minutes away by car if you want a city day, but most guests find they don't need to leave the valley at all.",
+      'location.p3': "The whole area sits inside Germany's only alpine national park, so the view from the window tends to be the same one you'll be hiking into that afternoon.",
       'location.stat1': 'Watzmann summit, visible from town',
       'location.stat2num': 'Play street',
       'location.stat2': 'Right outside Ferienwohnung Auszeit',
       'location.stat3': 'Drive to Salzburg, Austria',
       'location.stat4num': 'On foot',
       'location.stat4': 'Hiking trails from the doorstep',
+
+      'nearby.eyebrow': 'Sights & day trips',
+      'nearby.headline': "What's actually worth your time nearby",
+      'nearby.sub': "A short, honest list — not everything within an hour's drive, just the places guests keep coming back and telling us about.",
+      'nearby.item1.tag': '~15 min drive',
+      'nearby.item1.title': 'Königssee',
+      'nearby.item1.desc': 'A fjord-like alpine lake with electric boats — the crossing to the onion-domed chapel at St. Bartholomä is the classic first trip.',
+      'nearby.item2.tag': '~20 min drive + shuttle bus',
+      'nearby.item2.title': "Kehlsteinhaus (Eagle's Nest)",
+      'nearby.item2.desc': 'A historic building on a mountain ridge with a panoramic terrace over the whole valley. Open seasonally, roughly May to October.',
+      'nearby.item3.tag': 'From the doorstep',
+      'nearby.item3.title': 'Watzmann hiking trails',
+      'nearby.item3.desc': 'Everything from flat valley walks to the multi-day Watzmann traverse starts within the national park, minutes from both flats.',
+      'nearby.item4.tag': '~15 min drive',
+      'nearby.item4.title': 'Rossfeld panoramic road',
+      'nearby.item4.desc': "Germany's highest through-road, tracing the Austrian border with pull-offs for wide views of the Watzmann and Hoher Göll.",
+      'nearby.item5.tag': '~10 min drive',
+      'nearby.item5.title': 'Berchtesgaden salt mine',
+      'nearby.item5.desc': 'An underground tour through centuries-old salt tunnels, including a slide and a short boat crossing — a solid rainy-day option, good for most ages.',
+      'nearby.item6.tag': '~10 min drive',
+      'nearby.item6.title': 'Obersalzberg Documentation Centre',
+      'nearby.item6.desc': "A museum covering the region's 20th-century history in detail, with remnants of wartime tunnel systems open to visit beneath it.",
+
+      'practical.eyebrow': 'Good to know',
+      'practical.headline': 'Planning the practical side of the trip',
+      'practical.item1.title': 'Getting here',
+      'practical.item1.desc': 'Salzburg Airport is about 45 minutes away, Munich Airport around two hours by car. Berchtesgaden also has its own train station with regular regional connections.',
+      'practical.item2.title': 'Guest card & buses',
+      'practical.item2.desc': 'Overnight guests in the Berchtesgadener Land typically receive a regional guest card, which covers local bus travel — handy for reaching Königssee or the valley trailheads without a car.',
+      'practical.item3.title': 'Parking & arrival',
+      'practical.item3.desc': "Private parking is available at both apartments. We'll send exact check-in instructions and directions a few days before arrival.",
+      'practical.item4.title': 'When to visit',
+      'practical.item4.desc': 'Summer suits hiking and lake days; winter brings skiing at the Jenner and Rossfeld. Spring and autumn are quieter, with the trails mostly to yourself.',
 
       'about.eyebrow': 'About us',
       'about.headline': 'Two flats, run by people who live here',
@@ -481,6 +610,7 @@
       'nav.about': 'Über uns',
       'nav.contact': 'Kontakt',
       'nav.cta': 'Verfügbarkeit prüfen',
+      'nav.nearby': 'Umgebung',
 
       'hero.eyebrow': 'Berchtesgadener Alpen',
       'hero.headline': 'Zwei Wohnungen. Ein Bergpanorama, zu dem man gerne zurückkehrt.',
@@ -502,7 +632,7 @@
       'watzmann.tag3': 'Vollküche',
       'watzmann.tag4': 'Familienfreundlich',
       'watzmann.tag5': 'Kostenloses WLAN',
-      'watzmann.tag6': 'Balkon',
+      'watzmann.tag6': 'Terrasse',
       'watzmann.book': 'Buchen über Booking.com',
 
       'auszeit.location': 'Ruhige Straße am Waldrand',
@@ -519,12 +649,46 @@
       'location.headline': 'Berchtesgaden, zwischen Watzmann und Königssee',
       'location.p1': 'Beide Wohnungen liegen im Berchtesgadener Land, wo die Berge am Ortsrand beginnen und nicht erst nach einer Autostunde. Wanderwege, Bergseen und Almhütten sind zu Fuß oder mit einer kurzen Fahrt erreichbar.',
       'location.p2': 'Salzburg ist etwa 30 Minuten mit dem Auto entfernt, falls Sie einen Stadttag einlegen möchten — die meisten Gäste bleiben aber ganz im Tal.',
+      'location.p3': 'Die gesamte Region liegt im einzigen Alpen-Nationalpark Deutschlands — der Blick aus dem Fenster ist oft derselbe, in den Sie am Nachmittag hineinwandern.',
       'location.stat1': 'Watzmann-Gipfel, sichtbar vom Ort aus',
       'location.stat2num': 'Spielstraße',
       'location.stat2': 'Direkt vor der Ferienwohnung Auszeit',
       'location.stat3': 'Fahrt nach Salzburg, Österreich',
       'location.stat4num': 'Zu Fuß',
       'location.stat4': 'Wanderwege direkt vor der Tür',
+
+      'nearby.eyebrow': 'Sehenswürdigkeiten & Ausflüge',
+      'nearby.headline': 'Was in der Nähe wirklich lohnt',
+      'nearby.sub': 'Eine kurze, ehrliche Auswahl — nicht alles, was in einer Autostunde erreichbar ist, sondern das, wovon Gäste uns am häufigsten erzählen.',
+      'nearby.item1.tag': '~15 Min. Fahrt',
+      'nearby.item1.title': 'Königssee',
+      'nearby.item1.desc': 'Ein fjordähnlicher Alpensee mit elektrisch betriebenen Booten — die Überfahrt zur Zwiebelturm-Kapelle St. Bartholomä ist der klassische erste Ausflug.',
+      'nearby.item2.tag': '~20 Min. Fahrt + Zubringerbus',
+      'nearby.item2.title': 'Kehlsteinhaus',
+      'nearby.item2.desc': 'Ein historisches Gebäude auf einem Bergrücken mit Panoramaterrasse über das ganze Tal. Saisonal geöffnet, etwa von Mai bis Oktober.',
+      'nearby.item3.tag': 'Direkt vor der Tür',
+      'nearby.item3.title': 'Watzmann-Wanderwege',
+      'nearby.item3.desc': 'Von flachen Talwegen bis zur mehrtägigen Watzmann-Überschreitung — alles beginnt im Nationalpark, wenige Minuten von beiden Wohnungen entfernt.',
+      'nearby.item4.tag': '~15 Min. Fahrt',
+      'nearby.item4.title': 'Rossfeld-Panoramastraße',
+      'nearby.item4.desc': 'Deutschlands höchste durchgehende Straße, entlang der österreichischen Grenze, mit Ausblicken auf Watzmann und Hohen Göll.',
+      'nearby.item5.tag': '~10 Min. Fahrt',
+      'nearby.item5.title': 'Salzbergwerk Berchtesgaden',
+      'nearby.item5.desc': 'Eine unterirdische Führung durch jahrhundertealte Salzstollen, inklusive Rutsche und kurzer Bootsfahrt — eine gute Option bei Regen, für fast jedes Alter geeignet.',
+      'nearby.item6.tag': '~10 Min. Fahrt',
+      'nearby.item6.title': 'Dokumentation Obersalzberg',
+      'nearby.item6.desc': 'Ein Museum zur Geschichte der Region im 20. Jahrhundert, mit Resten der Stollenanlagen aus der Kriegszeit, die darunter besichtigt werden können.',
+
+      'practical.eyebrow': 'Gut zu wissen',
+      'practical.headline': 'Der praktische Teil der Reiseplanung',
+      'practical.item1.title': 'Anreise',
+      'practical.item1.desc': 'Der Flughafen Salzburg ist etwa 45 Minuten entfernt, München etwa zwei Autostunden. Berchtesgaden hat außerdem einen eigenen Bahnhof mit regelmäßigen Regionalverbindungen.',
+      'practical.item2.title': 'Gästekarte & Busse',
+      'practical.item2.desc': 'Übernachtungsgäste im Berchtesgadener Land erhalten in der Regel eine regionale Gästekarte, die die lokalen Busse abdeckt — praktisch für Königssee oder die Wanderparkplätze im Tal, auch ohne Auto.',
+      'practical.item3.title': 'Parken & Ankunft',
+      'practical.item3.desc': 'An beiden Wohnungen steht privater Parkplatz zur Verfügung. Die genauen Check-in-Hinweise und die Anfahrt senden wir Ihnen einige Tage vor Anreise zu.',
+      'practical.item4.title': 'Beste Reisezeit',
+      'practical.item4.desc': 'Der Sommer eignet sich für Wandern und Seetage, im Winter locken Jenner und Rossfeld zum Skifahren. Frühling und Herbst sind ruhiger — die Wege dann oft für sich allein.',
 
       'about.eyebrow': 'Über uns',
       'about.headline': 'Zwei Wohnungen, geführt von Menschen, die hier leben',
