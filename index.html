@@ -39,20 +39,56 @@
 </script>
 
 <style>
-  /* Respect reduced-motion preferences */
+  /* Respect reduced-motion preferences: gentle cross-fade instead of no feedback at all */
   @media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    .hero-rise, .hero-rise-delay, .hero-rise-delay-2 { animation: none !important; opacity: 1 !important; transform: none !important; }
+    .lift, #mobile-menu, .mobile-menu-item { transition-duration: 120ms !important; }
+    .lift:hover, .lift:active { transform: none !important; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    header#site-header { background-color: #F7F1E3; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  }
+  @media (prefers-contrast: more) {
+    header#site-header { background-color: #F7F1E3; border-bottom: 2px solid #2B211B; }
   }
 
   html { scroll-behavior: smooth; }
 
-  /* Soft, warm elevation instead of a hard industrial shadow */
-  .shadow-soft    { box-shadow: 0 14px 30px -12px rgba(43,33,27,0.35), 0 2px 8px rgba(43,33,27,0.12); }
+  /* Soft, warm elevation instead of a hard industrial shadow. Bigger surfaces read thicker: deeper shadow + more blur than small chips. */
+  .shadow-soft    { box-shadow: 0 20px 40px -14px rgba(43,33,27,0.38), 0 3px 10px rgba(43,33,27,0.14); }
   .shadow-soft-sm { box-shadow: 0 8px 18px -8px rgba(43,33,27,0.32), 0 1px 4px rgba(43,33,27,0.12); }
 
-  .lift { transition: transform 200ms ease, box-shadow 200ms ease; }
+  /* Response: feedback starts on press, not on release. Snappy critically-damped settle, no lingering ease-out. */
+  .lift {
+    transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 150ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
   .lift:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -12px rgba(43,33,27,0.4), 0 3px 10px rgba(43,33,27,0.16); }
-  .lift:active { transform: translateY(-1px); }
+  .lift:active { transform: translateY(-1px) scale(0.97); transition-duration: 80ms; }
+
+  /* Scroll-edge material: header is a translucent layer that gains weight only once content sits under it */
+  header#site-header {
+    background-color: rgba(247, 241, 227, 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 1px 0 rgba(43,33,27,0.08);
+    transition: box-shadow 200ms ease, background-color 200ms ease;
+  }
+  header#site-header.is-scrolled {
+    box-shadow: 0 8px 20px -12px rgba(43,33,27,0.3), 0 1px 0 rgba(43,33,27,0.12);
+  }
+
+  /* Mobile menu: anchored to the toggle, materializes rather than snapping via display:none */
+  #mobile-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transform-origin: top center;
+    transition: grid-template-rows 260ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms ease;
+    overflow: hidden;
+  }
+  #mobile-menu.is-open { grid-template-rows: 1fr; opacity: 1; }
+  #mobile-menu > .mobile-menu-inner { min-height: 0; }
 
   /* Cozy alpine ribbon trim used between sections */
   .alpine-trim {
@@ -82,6 +118,12 @@
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  /* Typography: tracking and leading are size-specific, never one value for everything */
+  .hero-headline { letter-spacing: -0.02em; line-height: 1.05; }
+  h2.section-headline { letter-spacing: -0.015em; line-height: 1.1; }
+  h3 { letter-spacing: -0.005em; }
+  body { letter-spacing: 0; }
 </style>
 </head>
 
@@ -98,7 +140,7 @@
 <!-- =========================================================
      NAVIGATION
 ========================================================= -->
-<header class="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b-2 border-charcoal">
+<header id="site-header" class="sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
 
@@ -137,16 +179,18 @@
     </div>
 
     <!-- Mobile menu -->
-    <nav id="mobile-menu" class="md:hidden hidden pb-5 flex flex-col gap-4 font-medium text-sm border-t-2 border-charcoal pt-4">
-      <a href="#properties" class="hover:text-rust" data-i18n="nav.properties">Properties</a>
-      <a href="#location" class="hover:text-rust" data-i18n="nav.location">Location</a>
-      <a href="#nearby" class="hover:text-rust" data-i18n="nav.nearby">Nearby</a>
-      <a href="#about" class="hover:text-rust" data-i18n="nav.about">About</a>
-      <a href="#contact" class="hover:text-rust" data-i18n="nav.contact">Contact</a>
-      <a href="#properties" class="inline-block bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 text-center shadow-soft-sm lift" data-i18n="nav.cta">Check availability</a>
-      <div class="flex border-2 border-charcoal rounded-full overflow-hidden w-max" role="group" aria-label="Language selector">
-        <button type="button" id="lang-en-m" class="lang-btn px-3 py-1.5 text-xs font-sans font-bold" aria-pressed="true">EN</button>
-        <button type="button" id="lang-de-m" class="lang-btn px-3 py-1.5 text-xs font-sans font-bold border-l-2 border-charcoal" aria-pressed="false">DE</button>
+    <nav id="mobile-menu" class="md:hidden" aria-hidden="true">
+      <div class="mobile-menu-inner flex flex-col gap-4 font-medium text-sm border-t-2 border-charcoal pt-4 pb-5">
+        <a href="#properties" class="hover:text-rust" data-i18n="nav.properties">Properties</a>
+        <a href="#location" class="hover:text-rust" data-i18n="nav.location">Location</a>
+        <a href="#nearby" class="hover:text-rust" data-i18n="nav.nearby">Nearby</a>
+        <a href="#about" class="hover:text-rust" data-i18n="nav.about">About</a>
+        <a href="#contact" class="hover:text-rust" data-i18n="nav.contact">Contact</a>
+        <a href="#properties" class="inline-block bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 text-center shadow-soft-sm lift" data-i18n="nav.cta">Check availability</a>
+        <div class="flex border-2 border-charcoal rounded-full overflow-hidden w-max" role="group" aria-label="Language selector">
+          <button type="button" id="lang-en-m" class="lang-btn px-3 py-1.5 text-xs font-sans font-bold" aria-pressed="true">EN</button>
+          <button type="button" id="lang-de-m" class="lang-btn px-3 py-1.5 text-xs font-sans font-bold border-l-2 border-charcoal" aria-pressed="false">DE</button>
+        </div>
       </div>
     </nav>
   </div>
@@ -161,7 +205,7 @@
     <!-- Text column -->
     <div>
       <p class="hero-rise font-display italic font-semibold text-rust text-sm mb-4" data-i18n="hero.eyebrow">Berchtesgaden Alps</p>
-      <h1 class="hero-rise-delay font-display font-bold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.05] tracking-tight mb-6" data-i18n="hero.headline">
+      <h1 class="hero-rise-delay hero-headline font-display font-bold text-4xl sm:text-5xl lg:text-[3.4rem] mb-6" data-i18n="hero.headline">
         Two apartments. One mountain range worth coming back to.
       </h1>
       <p class="hero-rise-delay-2 text-slate text-base sm:text-lg leading-relaxed mb-8 max-w-md" data-i18n="hero.sub">
@@ -208,7 +252,7 @@
 <section id="properties" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24 bg-gold/5">
   <div class="max-w-xl mb-12">
     <p class="font-display italic font-semibold text-rust text-sm mb-3" data-i18n="properties.eyebrow">The apartments</p>
-    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="properties.headline">Two very different bases for two very different trips</h2>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl section-headline mb-4" data-i18n="properties.headline">Two very different bases for two very different trips</h2>
     <p class="text-slate leading-relaxed" data-i18n="properties.sub">Both flats sit in well-kept multi-family houses, but each one is fully self-contained and fully equipped inside. You share the building entrance, nothing else. Pick the one that matches the mood you're after, not just the square metres.</p>
   </div>
 
@@ -303,7 +347,7 @@
     <div class="grid md:grid-cols-2 gap-12 md:gap-16">
       <div>
         <p class="font-display italic font-semibold text-gold text-sm mb-3" data-i18n="location.eyebrow">Where you'll be</p>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-6" data-i18n="location.headline">Berchtesgaden, between the Watzmann and the Königssee</h2>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl section-headline mb-6" data-i18n="location.headline">Berchtesgaden, between the Watzmann and the Königssee</h2>
         <p class="text-cream/80 leading-relaxed mb-6" data-i18n="location.p1">
           Both flats sit inside the Berchtesgadener Land, a stretch of Bavaria where the mountains start at the edge of town rather than an hour's drive away. Trailheads, alpine lakes and mountain huts are close enough to reach on foot or with a short drive.
         </p>
@@ -343,7 +387,7 @@
 <section id="nearby" class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
   <div class="max-w-xl mb-12">
     <p class="font-display italic font-semibold text-rust text-sm mb-3" data-i18n="nearby.eyebrow">Sights &amp; day trips</p>
-    <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4" data-i18n="nearby.headline">What's actually worth your time nearby</h2>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl section-headline mb-4" data-i18n="nearby.headline">What's actually worth your time nearby</h2>
     <p class="text-slate leading-relaxed" data-i18n="nearby.sub">A short, honest list: not everything within an hour's drive, just the places guests keep coming back and telling us about.</p>
   </div>
 
@@ -409,7 +453,7 @@
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
     <div class="max-w-xl mb-12">
       <p class="font-display italic font-semibold text-pine text-sm mb-3" data-i18n="practical.eyebrow">Good to know</p>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight" data-i18n="practical.headline">Planning the practical side of the trip</h2>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl section-headline" data-i18n="practical.headline">Planning the practical side of the trip</h2>
     </div>
 
     <div class="grid sm:grid-cols-2 gap-8">
@@ -448,7 +492,7 @@
   <div class="grid md:grid-cols-[1fr_1.3fr] gap-12 items-start">
     <div>
       <p class="font-display italic font-semibold text-pine text-sm mb-3" data-i18n="about.eyebrow">About us</p>
-      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight" data-i18n="about.headline">Two flats, run by people who live here</h2>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl section-headline" data-i18n="about.headline">Two flats, run by people who live here</h2>
     </div>
     <div class="border-l-4 border-rust pl-8">
       <p class="text-slate leading-relaxed mb-4" data-i18n="about.p1">
@@ -515,18 +559,24 @@
      SCRIPT: mobile menu + EN/DE translations
 ========================================================= -->
 <script>
-  // ---- Mobile menu toggle ----
+  // ---- Mobile menu toggle: anchored to the trigger, materializes via grid-rows instead of a display:none snap ----
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
+  function setMenuOpen(open) {
+    mobileMenu.classList.toggle('is-open', open);
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    menuToggle.setAttribute('aria-expanded', String(open));
+  }
   menuToggle.addEventListener('click', () => {
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    setMenuOpen(!mobileMenu.classList.contains('is-open'));
   });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mobileMenu.classList.add('hidden');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
+
+  // ---- Header material: gains weight (shadow) only once content sits under it ----
+  const siteHeader = document.getElementById('site-header');
+  const updateHeaderState = () => siteHeader.classList.toggle('is-scrolled', window.scrollY > 4);
+  updateHeaderState();
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
 
   // ---- Footer year ----
   document.getElementById('year').textContent = new Date().getFullYear();
