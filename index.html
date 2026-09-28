@@ -6,10 +6,24 @@
 <title>Watzmann Stay: Ferienwohnungen in Berchtesgaden</title>
 <meta name="description" content="Two apartments in the Berchtesgaden Alps: Ferienwohnung Watzmann, central and versatile, and Ferienwohnung Auszeit, quiet and romantic.">
 
-<!-- Fonts: Space Grotesk for display/headings, Inter for body text -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Fonts: Fraunces for display/headings, Nunito for body text.
+     DSGVO-Hinweis: Diese externen Google-Fonts-Dateien werden NICHT mehr automatisch geladen,
+     da beim Laden die IP-Adresse des Besuchers an Google-Server (auch außerhalb der EU) übertragen wird.
+     Das Nachladen erfolgt erst per JavaScript (siehe loadGoogleFonts() weiter unten), nachdem der Besucher
+     im Cookie-/Consent-Banner aktiv zugestimmt hat. Bis dahin greift der System-Font-Stack unten.
+     Empfehlung für maximale Rechtssicherheit: die beiden Fonts stattdessen selbst hosten (woff2-Dateien
+     von fonts.google.com herunterladen, unter /assets/fonts/ ablegen und per @font-face einbinden) -
+     dann ist auch keine Einwilligung mehr nötig. -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<!-- Google Fonts stylesheet is injected by loadGoogleFonts() only after consent -->
+<style>
+  /* Fallback stack so the page still looks intentional before/without font consent */
+  :root {
+    --font-display-fallback: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    --font-sans-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+</style>
 
 <!-- Tailwind CSS via CDN (Play CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -30,8 +44,8 @@
           wood:    '#7A4B2A',
         },
         fontFamily: {
-          display: ['"Fraunces"', 'serif'],
-          sans: ['"Nunito"', 'sans-serif'],
+          display: ['"Fraunces"', 'Georgia', '"Iowan Old Style"', '"Palatino Linotype"', 'serif'],
+          sans: ['"Nunito"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
         },
       }
     }
@@ -128,6 +142,23 @@
 </head>
 
 <body class="bg-cream text-charcoal font-sans antialiased">
+
+<!-- =========================================================
+     COOKIE / CONSENT BANNER
+     Nur die Google-Fonts-Nachladung ist einwilligungspflichtig (Übertragung der IP-Adresse
+     an Google-Server). Die Spracheinstellung (localStorage) ist rein funktional/technisch
+     notwendig und daher gemäß § 25 Abs. 2 Nr. 2 TTDSG von der Einwilligungspflicht ausgenommen.
+========================================================= -->
+<div id="consent-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden" role="dialog" aria-live="polite" aria-label="Cookie- und Datenschutzhinweis" aria-describedby="consent-text">
+  <div class="max-w-3xl mx-auto m-4 bg-paper border-2 border-charcoal rounded-2xl shadow-soft p-5 sm:p-6">
+    <p id="consent-text" class="text-sm leading-relaxed mb-4" data-i18n="consent.text">We only use technically necessary local storage to remember your language choice. With your consent we additionally load the "Fraunces" and "Nunito" typefaces from Google Fonts, which transmits your IP address to Google. You can change this at any time via "Cookie settings" in the footer.</p>
+    <div class="flex flex-col sm:flex-row gap-3">
+      <button type="button" id="consent-accept" class="bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 shadow-soft-sm lift" data-i18n="consent.acceptAll">Accept all</button>
+      <button type="button" id="consent-reject" class="bg-transparent text-charcoal border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 lift" data-i18n="consent.essentialOnly">Essential only</button>
+      <a href="#legal-privacy" id="consent-details-link" class="text-sm font-medium underline underline-offset-2 self-center sm:ml-auto" data-i18n="consent.details">Privacy policy</a>
+    </div>
+  </div>
+</div>
 
 <!-- Accent stripe -->
 <div class="h-1.5 w-full flex" aria-hidden="true">
@@ -594,8 +625,59 @@
       <p><span id="year"></span> Watzmann Stay. <span data-i18n="footer.rights">All rights reserved.</span></p>
       <p data-i18n="footer.note">Ferienwohnung Watzmann &amp; Ferienwohnung Auszeit, Berchtesgaden.</p>
     </div>
+
+    <!-- Legal links: kept permanently visible in the footer on every section of this one-page site -->
+    <nav aria-label="Legal" class="border-t-2 border-cream/30 mt-4 pt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs">
+      <button type="button" id="open-imprint" class="underline underline-offset-2 text-cream/80 hover:text-gold" data-i18n="footer.imprint">Imprint</button>
+      <button type="button" id="open-privacy" class="underline underline-offset-2 text-cream/80 hover:text-gold" data-i18n="footer.privacy">Privacy policy</button>
+      <button type="button" id="open-cookie-settings" class="underline underline-offset-2 text-cream/80 hover:text-gold" data-i18n="footer.cookieSettings">Cookie settings</button>
+    </nav>
   </div>
 </footer>
+
+<!-- =========================================================
+     LEGAL MODALS: Impressum (§ 5 DDG) & Datenschutzerklärung (DSGVO)
+     Bitte alle [PLATZHALTER] durch die echten Angaben ersetzen, bevor die Seite live geht.
+========================================================= -->
+<div id="legal-overlay" class="fixed inset-0 z-[200] hidden bg-charcoal/60 backdrop-blur-sm p-4 sm:p-8 overflow-y-auto" role="presentation">
+
+  <!-- Impressum -->
+  <div id="modal-imprint" class="legal-modal hidden max-w-2xl mx-auto my-8 bg-paper border-2 border-charcoal rounded-2xl shadow-soft p-6 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="modal-imprint-title">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <h2 id="modal-imprint-title" class="font-display font-bold text-2xl" data-i18n="legal.imprintTitle">Imprint</h2>
+      <button type="button" class="legal-close border-2 border-charcoal rounded-xl px-3 py-1 font-bold" aria-label="Close" data-i18n="legal.close">Close</button>
+    </div>
+    <div class="prose-legal text-sm leading-relaxed space-y-3" data-i18n="legal.imprintBody">
+      <p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
+      <p>[PLATZHALTER: Vor- und Nachname bzw. Firmenname]<br>[PLATZHALTER: Straße und Hausnummer]<br>[PLATZHALTER: PLZ und Ort]<br>Deutschland</p>
+      <p><strong>Kontakt</strong><br>Telefon: [PLATZHALTER: Telefonnummer]<br>E-Mail: [PLATZHALTER: E-Mail-Adresse]</p>
+      <p><strong>Umsatzsteuer-Identifikationsnummer</strong><br>gemäß § 27a Umsatzsteuergesetz: [PLATZHALTER: USt-IdNr. oder "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)."]</p>
+      <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>[PLATZHALTER: Name, Anschrift wie oben]</p>
+      <p><strong>EU-Streitschlichtung</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a> finden. Unsere E-Mail-Adresse finden Sie oben unter Kontakt.</p>
+      <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind zur Teilnahme an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle [PLATZHALTER: nicht bereit und nicht verpflichtet / bereit] (§ 36 VSBG). [PLATZHALTER, falls bereit: Name und Anschrift der zuständigen Schlichtungsstelle ergänzen.]</p>
+    </div>
+  </div>
+
+  <!-- Datenschutzerklärung -->
+  <div id="modal-privacy" class="legal-modal hidden max-w-2xl mx-auto my-8 bg-paper border-2 border-charcoal rounded-2xl shadow-soft p-6 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <h2 id="modal-privacy-title" class="font-display font-bold text-2xl" data-i18n="legal.privacyTitle">Privacy policy</h2>
+      <button type="button" class="legal-close border-2 border-charcoal rounded-xl px-3 py-1 font-bold" aria-label="Close" data-i18n="legal.close">Close</button>
+    </div>
+    <div class="prose-legal text-sm leading-relaxed space-y-3" data-i18n="legal.privacyBody">
+      <p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist [PLATZHALTER: Name, Anschrift, E-Mail wie im Impressum].</p>
+      <p><strong>2. Server-Logfiles / Hosting</strong><br>Beim Aufruf dieser Website erhebt unser Hosting-Provider automatisch technische Daten (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser), die zur Bereitstellung der Seite und aus Sicherheitsgründen erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem funktionsfähigen, sicheren Betrieb). [PLATZHALTER: Name und Sitz des Hosters sowie ggf. Link zu dessen Auftragsverarbeitungsvertrag ergänzen.]</p>
+      <p><strong>3. Lokale Speicherung der Spracheinstellung</strong><br>Diese Website speichert Ihre gewählte Sprache (Deutsch/Englisch) technisch notwendig im lokalen Speicher (localStorage) Ihres Browsers, um sie bei einem erneuten Besuch beizubehalten. Es werden dabei keine personenbezogenen Daten an uns oder Dritte übermittelt. Diese Speicherung ist gemäß § 25 Abs. 2 Nr. 2 TTDSG von der Einwilligungspflicht ausgenommen, da sie unbedingt erforderlich ist, um den von Ihnen ausdrücklich gewünschten Dienst (Spracheinstellung) bereitzustellen.</p>
+      <p><strong>4. Google Fonts (nur nach Einwilligung)</strong><br>Diese Seite verwendet die Schriftarten „Fraunces" und „Nunito". Diese werden <em>nicht automatisch</em> von Google-Servern geladen. Erst wenn Sie im Cookie-Banner aktiv „Alle akzeptieren" wählen, wird eine Verbindung zu Servern von Google Fonts (Google Ireland Limited bzw. Google LLC, ggf. mit Datenübertragung in die USA) aufgebaut, wobei Ihre IP-Adresse an Google übertragen wird. Rechtsgrundlage ist in diesem Fall Ihre Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit über „Cookie-Einstellungen" im Footer mit Wirkung für die Zukunft widerrufen können. Lehnen Sie ab oder treffen Sie keine Wahl, wird ausschließlich eine systemeigene Schriftart Ihres Geräts angezeigt.</p>
+      <p><strong>5. Externe Links</strong><br>Diese Seite verlinkt auf externe Angebote wie Booking.com sowie Instagram/Facebook. Beim Anklicken dieser Links verlassen Sie unsere Seite; für die Datenverarbeitung auf diesen externen Seiten sind ausschließlich deren jeweilige Betreiber verantwortlich. Es findet kein automatisches Nachladen von Inhalten dieser Anbieter auf unserer Seite statt.</p>
+      <p><strong>6. Keine Buchungs- oder Kontaktformulare</strong><br>Diese Website erhebt aktuell keine von Ihnen aktiv eingegebenen personenbezogenen Daten (z. B. über ein Kontakt- oder Buchungsformular). Nehmen Sie per E-Mail oder Telefon Kontakt zu uns auf, verarbeiten wir die dabei von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Nachrichteninhalt) ausschließlich zur Bearbeitung Ihrer Anfrage, Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO.</p>
+      <p><strong>7. Speicherdauer</strong><br>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen.</p>
+      <p><strong>8. Ihre Rechte</strong><br>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Ihnen steht zudem ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde zu, z. B. der für [PLATZHALTER: Bundesland] zuständigen Behörde.</p>
+      <p><strong>9. Kontakt in Datenschutzfragen</strong><br>[PLATZHALTER: E-Mail-Adresse für Datenschutzanfragen, sofern abweichend vom Impressum].</p>
+      <p class="text-xs text-slate pt-2">Stand: [PLATZHALTER: Datum]</p>
+    </div>
+  </div>
+</div>
 
 <!-- =========================================================
      SCRIPT: mobile menu + EN/DE translations
@@ -622,6 +704,79 @@
 
   // ---- Footer year ----
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Consent banner: only Google Fonts loading requires opt-in consent (transmits IP to Google) ----
+  const CONSENT_KEY = 'watzmannstay-consent'; // 'accepted' | 'rejected'
+  const consentBanner = document.getElementById('consent-banner');
+
+  function loadGoogleFonts() {
+    if (document.getElementById('google-fonts-stylesheet')) return;
+    const preconnect1 = document.createElement('link');
+    preconnect1.rel = 'preconnect';
+    preconnect1.href = 'https://fonts.googleapis.com';
+    const preconnect2 = document.createElement('link');
+    preconnect2.rel = 'preconnect';
+    preconnect2.href = 'https://fonts.gstatic.com';
+    preconnect2.crossOrigin = 'anonymous';
+    const stylesheet = document.createElement('link');
+    stylesheet.id = 'google-fonts-stylesheet';
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;500;600;700;800&display=swap';
+    document.head.append(preconnect1, preconnect2, stylesheet);
+  }
+
+  function applyConsent(choice) {
+    localStorage.setItem(CONSENT_KEY, choice);
+    if (choice === 'accepted') loadGoogleFonts();
+    consentBanner.classList.add('hidden');
+  }
+
+  document.getElementById('consent-accept').addEventListener('click', () => applyConsent('accepted'));
+  document.getElementById('consent-reject').addEventListener('click', () => applyConsent('rejected'));
+
+  const savedConsent = localStorage.getItem(CONSENT_KEY);
+  if (savedConsent === 'accepted') {
+    loadGoogleFonts();
+  } else if (savedConsent === null) {
+    consentBanner.classList.remove('hidden');
+  }
+  // savedConsent === 'rejected' -> do nothing, system font stack stays active
+
+  document.getElementById('open-cookie-settings').addEventListener('click', () => {
+    consentBanner.classList.remove('hidden');
+  });
+  document.getElementById('consent-details-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    consentBanner.classList.add('hidden');
+    openLegalModal('modal-privacy');
+  });
+
+  // ---- Legal modals: Impressum & Datenschutzerklärung ----
+  const legalOverlay = document.getElementById('legal-overlay');
+  let lastFocusedBeforeModal = null;
+
+  function openLegalModal(modalId) {
+    lastFocusedBeforeModal = document.activeElement;
+    document.querySelectorAll('.legal-modal').forEach(m => m.classList.add('hidden'));
+    document.getElementById(modalId).classList.remove('hidden');
+    legalOverlay.classList.remove('hidden');
+    const closeBtn = document.getElementById(modalId).querySelector('.legal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeLegalModal() {
+    legalOverlay.classList.add('hidden');
+    document.querySelectorAll('.legal-modal').forEach(m => m.classList.add('hidden'));
+    if (lastFocusedBeforeModal) lastFocusedBeforeModal.focus();
+  }
+
+  document.getElementById('open-imprint').addEventListener('click', () => openLegalModal('modal-imprint'));
+  document.getElementById('open-privacy').addEventListener('click', () => openLegalModal('modal-privacy'));
+  document.querySelectorAll('.legal-close').forEach(btn => btn.addEventListener('click', closeLegalModal));
+  legalOverlay.addEventListener('click', (e) => { if (e.target === legalOverlay) closeLegalModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !legalOverlay.classList.contains('hidden')) closeLegalModal();
+  });
 
   // ---- Translations ----
   const translations = {
@@ -734,6 +889,35 @@
       'footer.contactTitle': 'Contact',
       'footer.rights': 'All rights reserved.',
       'footer.note': 'Ferienwohnung Watzmann &amp; Ferienwohnung Auszeit, Berchtesgaden.',
+      'footer.imprint': 'Imprint',
+      'footer.privacy': 'Privacy policy',
+      'footer.cookieSettings': 'Cookie settings',
+
+      'consent.text': 'We only use technically necessary local storage to remember your chosen language. With your consent we additionally load the "Fraunces" and "Nunito" typefaces from Google Fonts, which transmits your IP address to Google. You can change your choice at any time via "Cookie settings" in the footer.',
+      'consent.acceptAll': 'Accept all',
+      'consent.essentialOnly': 'Essential only',
+      'consent.details': 'Privacy policy',
+
+      'legal.imprintTitle': 'Imprint',
+      'legal.privacyTitle': 'Privacy policy',
+      'legal.close': 'Close',
+      'legal.imprintBody': `<p><strong>Information according to § 5 DDG (German Digital Services Act)</strong></p>
+        <p>[PLACEHOLDER: Full name or company name]<br>[PLACEHOLDER: Street and house number]<br>[PLACEHOLDER: Postcode and city]<br>Germany</p>
+        <p><strong>Contact</strong><br>Phone: [PLACEHOLDER: phone number]<br>Email: [PLACEHOLDER: email address]</p>
+        <p><strong>VAT identification number</strong><br>pursuant to § 27a of the German VAT Act: [PLACEHOLDER: VAT ID, or "No VAT is charged under the small business regulation, § 19 UStG."]</p>
+        <p><strong>Responsible for content pursuant to § 18(2) MStV</strong><br>[PLACEHOLDER: name and address as above]</p>
+        <p><strong>EU dispute resolution</strong><br>The European Commission provides a platform for online dispute resolution (ODR), available at <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a>. Our email address can be found above under Contact.</p>
+        <p><strong>Consumer dispute resolution</strong><br>We are [PLACEHOLDER: not willing or obliged / willing] to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG). [PLACEHOLDER, if willing: add the name and address of the responsible arbitration board.]</p>`,
+      'legal.privacyBody': `<p><strong>1. Controller</strong><br>The controller within the meaning of the GDPR is [PLACEHOLDER: name, address, email as in the imprint].</p>
+        <p><strong>2. Server log files / hosting</strong><br>When you visit this website, our hosting provider automatically collects technical data (e.g. IP address, date and time of access, page requested, browser used) required to deliver the site and for security purposes. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in a functional, secure website). [PLACEHOLDER: add hosting provider name/location and a link to the data processing agreement if applicable.]</p>
+        <p><strong>3. Local storage of your language setting</strong><br>This site stores your selected language (German/English) in your browser's local storage so it is remembered on your next visit. No personal data is transmitted to us or third parties in the process. This is exempt from consent requirements under § 25(2) no. 2 TTDSG, as it is strictly necessary to provide the service you explicitly requested (the language setting).</p>
+        <p><strong>4. Google Fonts (only with consent)</strong><br>This site uses the "Fraunces" and "Nunito" typefaces. They are <em>not</em> loaded automatically from Google's servers. Only if you actively choose "Accept all" in the cookie banner does your browser connect to Google Fonts servers (Google Ireland Limited / Google LLC, potentially involving data transfer to the US), transmitting your IP address to Google. The legal basis in that case is your consent, Art. 6(1)(a) GDPR, which you can withdraw at any time with future effect via "Cookie settings" in the footer. If you decline or make no choice, only a system font on your device is shown.</p>
+        <p><strong>5. External links</strong><br>This site links to external services such as Booking.com, Instagram and Facebook. Clicking these links takes you away from our site; the respective operators are solely responsible for data processing on their own pages. No content from these providers is automatically loaded on our site.</p>
+        <p><strong>6. No booking or contact forms</strong><br>This website currently does not collect any personal data you actively enter (e.g. via a contact or booking form). If you contact us by email or phone, we process the data you provide (e.g. name, email address, message content) solely to handle your enquiry, legal basis Art. 6(1)(b) GDPR (pre-contractual measures) or Art. 6(1)(f) GDPR.</p>
+        <p><strong>7. Retention period</strong><br>We only retain personal data for as long as necessary for the purposes stated above or as required by statutory retention obligations.</p>
+        <p><strong>8. Your rights</strong><br>You have the right to access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR), data portability (Art. 20 GDPR) and objection to processing (Art. 21 GDPR). Any consent given can be withdrawn at any time with future effect. You also have the right to lodge a complaint with a data protection supervisory authority, e.g. the authority responsible for [PLACEHOLDER: federal state].</p>
+        <p><strong>9. Contact for data protection matters</strong><br>[PLACEHOLDER: email address for privacy enquiries, if different from the imprint].</p>
+        <p class="text-xs text-slate pt-2">Last updated: [PLACEHOLDER: date]</p>`,
     },
     de: {
       'nav.tagline': 'Berchtesgaden',
@@ -844,6 +1028,35 @@
       'footer.contactTitle': 'Kontakt',
       'footer.rights': 'Alle Rechte vorbehalten.',
       'footer.note': 'Ferienwohnung Watzmann &amp; Ferienwohnung Auszeit, Berchtesgaden.',
+      'footer.imprint': 'Impressum',
+      'footer.privacy': 'Datenschutz',
+      'footer.cookieSettings': 'Cookie-Einstellungen',
+
+      'consent.text': 'Wir nutzen nur technisch notwendige lokale Speicherung, um Ihre gewählte Sprache zu merken. Mit Ihrer Einwilligung laden wir zusätzlich die Schriftarten „Fraunces" und „Nunito" von Google Fonts, wodurch Ihre IP-Adresse an Google übertragen wird. Sie können Ihre Wahl jederzeit über „Cookie-Einstellungen" im Footer ändern.',
+      'consent.acceptAll': 'Alle akzeptieren',
+      'consent.essentialOnly': 'Nur essenzielle',
+      'consent.details': 'Datenschutzerklärung',
+
+      'legal.imprintTitle': 'Impressum',
+      'legal.privacyTitle': 'Datenschutzerklärung',
+      'legal.close': 'Schließen',
+      'legal.imprintBody': `<p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
+        <p>[PLATZHALTER: Vor- und Nachname bzw. Firmenname]<br>[PLATZHALTER: Straße und Hausnummer]<br>[PLATZHALTER: PLZ und Ort]<br>Deutschland</p>
+        <p><strong>Kontakt</strong><br>Telefon: [PLATZHALTER: Telefonnummer]<br>E-Mail: [PLATZHALTER: E-Mail-Adresse]</p>
+        <p><strong>Umsatzsteuer-Identifikationsnummer</strong><br>gemäß § 27a Umsatzsteuergesetz: [PLATZHALTER: USt-IdNr. oder "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)."]</p>
+        <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>[PLATZHALTER: Name, Anschrift wie oben]</p>
+        <p><strong>EU-Streitschlichtung</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a> finden. Unsere E-Mail-Adresse finden Sie oben unter Kontakt.</p>
+        <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind zur Teilnahme an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle [PLATZHALTER: nicht bereit und nicht verpflichtet / bereit] (§ 36 VSBG). [PLATZHALTER, falls bereit: Name und Anschrift der zuständigen Schlichtungsstelle ergänzen.]</p>`,
+      'legal.privacyBody': `<p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist [PLATZHALTER: Name, Anschrift, E-Mail wie im Impressum].</p>
+        <p><strong>2. Server-Logfiles / Hosting</strong><br>Beim Aufruf dieser Website erhebt unser Hosting-Provider automatisch technische Daten (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser), die zur Bereitstellung der Seite und aus Sicherheitsgründen erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem funktionsfähigen, sicheren Betrieb). [PLATZHALTER: Name und Sitz des Hosters sowie ggf. Link zu dessen Auftragsverarbeitungsvertrag ergänzen.]</p>
+        <p><strong>3. Lokale Speicherung der Spracheinstellung</strong><br>Diese Website speichert Ihre gewählte Sprache (Deutsch/Englisch) technisch notwendig im lokalen Speicher (localStorage) Ihres Browsers, um sie bei einem erneuten Besuch beizubehalten. Es werden dabei keine personenbezogenen Daten an uns oder Dritte übermittelt. Diese Speicherung ist gemäß § 25 Abs. 2 Nr. 2 TTDSG von der Einwilligungspflicht ausgenommen, da sie unbedingt erforderlich ist, um den von Ihnen ausdrücklich gewünschten Dienst (Spracheinstellung) bereitzustellen.</p>
+        <p><strong>4. Google Fonts (nur nach Einwilligung)</strong><br>Diese Seite verwendet die Schriftarten „Fraunces" und „Nunito". Diese werden <em>nicht automatisch</em> von Google-Servern geladen. Erst wenn Sie im Cookie-Banner aktiv „Alle akzeptieren" wählen, wird eine Verbindung zu Servern von Google Fonts (Google Ireland Limited bzw. Google LLC, ggf. mit Datenübertragung in die USA) aufgebaut, wobei Ihre IP-Adresse an Google übertragen wird. Rechtsgrundlage ist in diesem Fall Ihre Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit über „Cookie-Einstellungen" im Footer mit Wirkung für die Zukunft widerrufen können. Lehnen Sie ab oder treffen Sie keine Wahl, wird ausschließlich eine systemeigene Schriftart Ihres Geräts angezeigt.</p>
+        <p><strong>5. Externe Links</strong><br>Diese Seite verlinkt auf externe Angebote wie Booking.com sowie Instagram/Facebook. Beim Anklicken dieser Links verlassen Sie unsere Seite; für die Datenverarbeitung auf diesen externen Seiten sind ausschließlich deren jeweilige Betreiber verantwortlich. Es findet kein automatisches Nachladen von Inhalten dieser Anbieter auf unserer Seite statt.</p>
+        <p><strong>6. Keine Buchungs- oder Kontaktformulare</strong><br>Diese Website erhebt aktuell keine von Ihnen aktiv eingegebenen personenbezogenen Daten (z. B. über ein Kontakt- oder Buchungsformular). Nehmen Sie per E-Mail oder Telefon Kontakt zu uns auf, verarbeiten wir die dabei von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Nachrichteninhalt) ausschließlich zur Bearbeitung Ihrer Anfrage, Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO.</p>
+        <p><strong>7. Speicherdauer</strong><br>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen.</p>
+        <p><strong>8. Ihre Rechte</strong><br>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Ihnen steht zudem ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde zu, z. B. der für [PLATZHALTER: Bundesland] zuständigen Behörde.</p>
+        <p><strong>9. Kontakt in Datenschutzfragen</strong><br>[PLATZHALTER: E-Mail-Adresse für Datenschutzanfragen, sofern abweichend vom Impressum].</p>
+        <p class="text-xs text-slate pt-2">Stand: [PLATZHALTER: Datum]</p>`,
     }
   };
 
