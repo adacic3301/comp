@@ -188,6 +188,7 @@
         <a href="#nearby" class="hover:text-rust transition-colors" data-i18n="nav.nearby">Nearby</a>
         <a href="#about" class="hover:text-rust transition-colors" data-i18n="nav.about">About</a>
         <a href="#contact" class="hover:text-rust transition-colors" data-i18n="nav.contact">Contact</a>
+        <button type="button" id="nav-guestinfo-btn" class="hover:text-rust transition-colors font-bold text-pine" data-i18n="nav.guestinfo">Gästemappe</button>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -217,6 +218,7 @@
         <a href="#nearby" class="hover:text-rust" data-i18n="nav.nearby">Nearby</a>
         <a href="#about" class="hover:text-rust" data-i18n="nav.about">About</a>
         <a href="#contact" class="hover:text-rust" data-i18n="nav.contact">Contact</a>
+        <button type="button" id="nav-guestinfo-btn-m" class="font-bold text-pine hover:text-rustdark text-left" data-i18n="nav.guestinfo">Gästemappe</button>
         <a href="#properties" class="inline-block bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 text-center shadow-soft-sm lift" data-i18n="nav.cta">Check availability</a>
         <div class="flex border-2 border-charcoal rounded-full overflow-hidden w-max" role="group" aria-label="Language selector">
           <button type="button" id="lang-en-m" class="lang-btn px-3 py-1.5 text-xs font-sans font-bold" aria-pressed="true">EN</button>
@@ -581,6 +583,285 @@
 <div class="alpine-trim" aria-hidden="true"></div>
 
 <!-- =========================================================
+     GÄSTEMAPPE / GUEST GUIDE
+========================================================= -->
+<section id="gasteinfo" class="hidden">
+<div class="bg-pine text-cream py-12 sm:py-16 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-gold font-sans font-bold text-xs tracking-widest uppercase mb-3" data-i18n="gm.eyebrow">Für Ihre Anreise</p>
+    <h2 class="font-display font-bold italic text-3xl sm:text-5xl mb-4 leading-tight" data-i18n="gm.headline">Gästemappe</h2>
+    <p class="text-cream/80 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="gm.sub">Alles Wichtige für einen entspannten Aufenthalt – von WLAN bis Check-out.</p>
+    <nav aria-label="Sprung zu Abschnitt" class="mt-6 flex flex-wrap gap-2">
+      <a href="#gm-wlan"       class="bg-cream/10 hover:bg-cream/20 border border-cream/30 text-cream text-xs font-bold px-3 py-1.5 rounded-full transition-colors">📶 WLAN</a>
+      <a href="#gm-parken"     class="bg-cream/10 hover:bg-cream/20 border border-cream/30 text-cream text-xs font-bold px-3 py-1.5 rounded-full transition-colors">🚗 Parken</a>
+      <a href="#gm-muell"      class="bg-cream/10 hover:bg-cream/20 border border-cream/30 text-cream text-xs font-bold px-3 py-1.5 rounded-full transition-colors">♻️ Mülltrennung</a>
+      <a href="#gm-checkout"   class="bg-cream/10 hover:bg-cream/20 border border-cream/30 text-cream text-xs font-bold px-3 py-1.5 rounded-full transition-colors">🔑 Abreise</a>
+      <a href="#gm-notfall"    class="bg-cream/10 hover:bg-cream/20 border border-cream/30 text-cream text-xs font-bold px-3 py-1.5 rounded-full transition-colors">📞 Notfall</a>
+      <a href="#gm-hausregeln" class="bg-cream/10 hover:bg-cream/20 border border-cream/30 text-cream text-xs font-bold px-3 py-1.5 rounded-full transition-colors">🏡 Hausregeln</a>
+    </nav>
+  </div>
+</div>
+
+<main class="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-16">
+
+  <!-- 1. WLAN -->
+  <section id="gm-wlan" aria-labelledby="gm-wlan-title" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-3xl" aria-hidden="true">📶</span>
+      <h2 id="gm-wlan-title" class="font-display font-bold text-2xl sm:text-3xl">WLAN &amp; Internet</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm border-l-4 border-l-sky">
+        <p class="font-display font-bold text-lg mb-4 text-sky">Ferienwohnung Watzmann</p>
+        <dl class="space-y-3 text-sm">
+          <div class="flex justify-between gap-4 border-b border-charcoal/10 pb-2">
+            <dt class="text-slate font-medium">Netzwerkname (SSID)</dt>
+            <dd class="font-bold font-mono tracking-wide">WatzmannStay_W</dd>
+          </div>
+          <div class="flex justify-between gap-4 border-b border-charcoal/10 pb-2">
+            <dt class="text-slate font-medium">Passwort</dt>
+            <dd class="font-bold font-mono tracking-wide">[Ihr WLAN-Passwort]</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-slate font-medium">Geschwindigkeit</dt>
+            <dd class="font-bold">ca. 100 Mbit/s</dd>
+          </div>
+        </dl>
+        <p class="text-xs text-slate mt-4 leading-relaxed">Router im Wohnzimmer hinter dem Fernseher. Bei Problemen: kurz vom Strom trennen, 30 Sekunden warten, neu starten.</p>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm border-l-4 border-l-sky">
+        <p class="font-display font-bold text-lg mb-4 text-sky">Ferienwohnung Auszeit</p>
+        <dl class="space-y-3 text-sm">
+          <div class="flex justify-between gap-4 border-b border-charcoal/10 pb-2">
+            <dt class="text-slate font-medium">Netzwerkname (SSID)</dt>
+            <dd class="font-bold font-mono tracking-wide">WatzmannStay_A</dd>
+          </div>
+          <div class="flex justify-between gap-4 border-b border-charcoal/10 pb-2">
+            <dt class="text-slate font-medium">Passwort</dt>
+            <dd class="font-bold font-mono tracking-wide">[Ihr WLAN-Passwort]</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-slate font-medium">Geschwindigkeit</dt>
+            <dd class="font-bold">ca. 100 Mbit/s</dd>
+          </div>
+        </dl>
+        <p class="text-xs text-slate mt-4 leading-relaxed">Router im Flur auf dem kleinen Regal. QR-Code am Router für schnelles Verbinden nutzen.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-charcoal/10">
+
+  <!-- 2. PARKEN -->
+  <section id="gm-parken" aria-labelledby="gm-parken-title" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-3xl" aria-hidden="true">🚗</span>
+      <h2 id="gm-parken-title" class="font-display font-bold text-2xl sm:text-3xl">Parken</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm border-l-4 border-l-gold">
+        <p class="font-display font-bold text-lg mb-3 text-wood">Ferienwohnung Watzmann</p>
+        <p class="text-sm leading-relaxed">Fester, überdachter Stellplatz im Innenhof, ausgeschildert mit „Watzmann – Gäste". Zufahrt rechts vom Hauseingang, Schranke öffnet mit beiliegendem Chip.</p>
+        <p class="mt-3 text-sm text-slate leading-relaxed">Weitere Fahrzeuge: Parkplatz Maximilianstraße P2 (ca. 200 m, kostenlos).</p>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm border-l-4 border-l-gold">
+        <p class="font-display font-bold text-lg mb-3 text-wood">Ferienwohnung Auszeit</p>
+        <p class="text-sm leading-relaxed">Privater Stellplatz direkt auf dem Grundstück (erster Platz von der Zufahrt, Tafel „Auszeit"). Bitte Spielstraße mit max. 5 km/h befahren.</p>
+        <p class="mt-3 text-sm text-slate leading-relaxed">Tipp: Mit der Gästekarte fahren Sie kostenlos Bus – ideal für Königssee und Hintersee.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-charcoal/10">
+
+  <!-- 3. MÜLLTRENNUNG -->
+  <section id="gm-muell" aria-labelledby="gm-muell-title" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-3xl" aria-hidden="true">♻️</span>
+      <h2 id="gm-muell-title" class="font-display font-bold text-2xl sm:text-3xl">Mülltrennung</h2>
+    </div>
+    <p class="text-sm text-slate mb-6 max-w-2xl leading-relaxed">Tonnen stehen im <strong>Müllhäuschen hinter dem Haus</strong> (Gartentor links vom Eingang).</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-charcoal shrink-0" aria-hidden="true"></span>
+          <h3 class="font-display font-bold text-base">Restmüll</h3>
+        </div>
+        <p class="text-sm text-slate leading-relaxed flex-1">Alles ohne eigene Tonne: Kehricht, verschmutzte Verpackungen, Zigarettenkippen.</p>
+        <p class="text-xs font-bold">🗑️ Schwarze Tonne</p>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-pine shrink-0" aria-hidden="true"></span>
+          <h3 class="font-display font-bold text-base">Biomüll</h3>
+        </div>
+        <p class="text-sm text-slate leading-relaxed flex-1">Obst- und Gemüseschalen, Kaffeesatz, Teebeutel, Essensreste. Nur kompostierbare Säcke, keine Plastiktüten.</p>
+        <p class="text-xs font-bold">🌿 Braune Tonne</p>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-sky shrink-0" aria-hidden="true"></span>
+          <h3 class="font-display font-bold text-base">Papier &amp; Pappe</h3>
+        </div>
+        <p class="text-sm text-slate leading-relaxed flex-1">Zeitungen, Kartons (flach falten!), Papiertüten. Kein beschichtetes Papier.</p>
+        <p class="text-xs font-bold">📦 Blaue Tonne</p>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-gold shrink-0" aria-hidden="true"></span>
+          <h3 class="font-display font-bold text-base">Gelber Sack &amp; Glas</h3>
+        </div>
+        <p class="text-sm text-slate leading-relaxed flex-1">Kunststoff &amp; Dosen in den <strong>Gelben Sack</strong> (unter der Spüle). Glas nach Farbe zum <strong>Glascontainer</strong> Maximilianstraße.</p>
+        <p class="text-xs font-bold">🟡 Gelber Sack</p>
+      </div>
+    </div>
+    <div class="mt-4 bg-rust/10 border border-rust/30 rounded-xl p-4 text-sm flex gap-3">
+      <span class="text-rust text-xl shrink-0" aria-hidden="true">⚠️</span>
+      <p>Sperrmüll, Elektronik und Altöl gehören <strong>nicht</strong> in die Tonnen. Bitte uns ansprechen.</p>
+    </div>
+  </section>
+
+  <hr class="border-charcoal/10">
+
+  <!-- 4. CHECK-OUT -->
+  <section id="gm-checkout" aria-labelledby="gm-checkout-title" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-3xl" aria-hidden="true">🔑</span>
+      <h2 id="gm-checkout-title" class="font-display font-bold text-2xl sm:text-3xl">Check-out &amp; Abreise</h2>
+    </div>
+    <div class="bg-paper border-2 border-charcoal rounded-2xl shadow-soft overflow-hidden">
+      <div class="bg-pine text-cream px-6 py-4 flex items-center gap-3">
+        <span class="text-gold font-display font-bold text-4xl leading-none" aria-hidden="true">10</span>
+        <div>
+          <p class="font-bold text-base leading-tight">Check-out bis 10:00 Uhr</p>
+          <p class="text-cream/70 text-sm">Früherer Abgang? Einfach kurz Bescheid geben.</p>
+        </div>
+      </div>
+      <ol class="divide-y divide-charcoal/10 px-6">
+        <li class="py-4 flex gap-4 items-start text-sm">
+          <span class="bg-rust text-cream rounded-full w-6 h-6 flex items-center justify-center font-bold shrink-0 text-xs mt-0.5" aria-hidden="true">1</span>
+          <div><p class="font-bold mb-1">Schlüssel deponieren</p><p class="text-slate">Alle Schlüssel (inkl. Briefkasten, Garagenchip) gut sichtbar auf den Esstisch legen. Kein Anruf nötig.</p></div>
+        </li>
+        <li class="py-4 flex gap-4 items-start text-sm">
+          <span class="bg-rust text-cream rounded-full w-6 h-6 flex items-center justify-center font-bold shrink-0 text-xs mt-0.5" aria-hidden="true">2</span>
+          <div><p class="font-bold mb-1">Fenster &amp; Türen schließen</p><p class="text-slate">Alle Fenster (auch Kippstellung!) und die Balkontür schließen – bei Berchtesgadener Wetter wichtig.</p></div>
+        </li>
+        <li class="py-4 flex gap-4 items-start text-sm">
+          <span class="bg-rust text-cream rounded-full w-6 h-6 flex items-center justify-center font-bold shrink-0 text-xs mt-0.5" aria-hidden="true">3</span>
+          <div><p class="font-bold mb-1">Heizung herunterdrehen</p><p class="text-slate">Alle Heizkörper auf Stufe „1" oder Frostsymbol ❄️. Danke!</p></div>
+        </li>
+        <li class="py-4 flex gap-4 items-start text-sm">
+          <span class="bg-rust text-cream rounded-full w-6 h-6 flex items-center justify-center font-bold shrink-0 text-xs mt-0.5" aria-hidden="true">4</span>
+          <div><p class="font-bold mb-1">Herd &amp; Kühlschrank</p><p class="text-slate">Herd ausgeschaltet? Keine Lebensmittel vergessen? Kühlschrank anlassen (niedrigste Stufe).</p></div>
+        </li>
+        <li class="py-4 flex gap-4 items-start text-sm">
+          <span class="bg-rust text-cream rounded-full w-6 h-6 flex items-center justify-center font-bold shrink-0 text-xs mt-0.5" aria-hidden="true">5</span>
+          <div><p class="font-bold mb-1">Handtücher</p><p class="text-slate">Benutzte Handtücher und Bettwäsche im Badezimmer auf dem Boden sammeln. Unbenutzte auf dem Bett lassen.</p></div>
+        </li>
+        <li class="py-4 flex gap-4 items-start text-sm">
+          <span class="bg-rust text-cream rounded-full w-6 h-6 flex items-center justify-center font-bold shrink-0 text-xs mt-0.5" aria-hidden="true">6</span>
+          <div><p class="font-bold mb-1">Lichter aus, Tür abschließen</p><p class="text-slate">Alles ausschalten, Wohnungstür abschließen, Schlüssel auf den Esstisch. Fertig!</p></div>
+        </li>
+      </ol>
+      <div class="px-6 pb-6 pt-2">
+        <p class="text-sm text-slate bg-cream/60 rounded-xl p-4 leading-relaxed">💬 <strong>Wir freuen uns über eine ehrliche Bewertung auf Booking.com</strong> – das hilft uns und anderen Gästen. Vielen Dank und eine gute Heimreise! 🏔️</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-charcoal/10">
+
+  <!-- 5. NOTFALLNUMMERN -->
+  <section id="gm-notfall" aria-labelledby="gm-notfall-title" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-3xl" aria-hidden="true">📞</span>
+      <h2 id="gm-notfall-title" class="font-display font-bold text-2xl sm:text-3xl">Wichtige Nummern &amp; Notfälle</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-4 mb-6">
+      <a href="tel:112" class="flex flex-col items-center justify-center bg-rust text-cream border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm lift text-center gap-2" aria-label="Notruf 112">
+        <span class="text-4xl" aria-hidden="true">🚑</span>
+        <span class="font-display font-bold text-5xl leading-none">112</span>
+        <span class="font-bold text-sm">Notruf</span>
+        <span class="text-cream/75 text-xs">Feuerwehr &amp; Rettungsdienst</span>
+      </a>
+      <a href="tel:110" class="flex flex-col items-center justify-center bg-sky text-cream border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm lift text-center gap-2" aria-label="Polizei 110">
+        <span class="text-4xl" aria-hidden="true">🚔</span>
+        <span class="font-display font-bold text-5xl leading-none">110</span>
+        <span class="font-bold text-sm">Polizei</span>
+        <span class="text-cream/75 text-xs">Polizei Berchtesgaden</span>
+      </a>
+      <a href="tel:116117" class="flex flex-col items-center justify-center bg-gold text-charcoal border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm lift text-center gap-2" aria-label="Ärztlicher Bereitschaftsdienst 116117">
+        <span class="text-4xl" aria-hidden="true">🏥</span>
+        <span class="font-display font-bold text-4xl leading-none">116 117</span>
+        <span class="font-bold text-sm">Ärztl. Bereitschaft</span>
+        <span class="text-charcoal/70 text-xs">Nachts &amp; Wochenende</span>
+      </a>
+    </div>
+    <div class="bg-paper border-2 border-charcoal rounded-2xl p-6 shadow-soft-sm">
+      <h3 class="font-display font-bold text-lg mb-4">Weitere Nummern</h3>
+      <dl class="space-y-3 text-sm divide-y divide-charcoal/10">
+        <div class="flex justify-between items-center gap-4 pt-3 first:pt-0">
+          <div><dt class="font-bold">🏡 Gastgeberin S. Menzel</dt><dd class="text-slate text-xs mt-0.5">Bei Fragen und Problemen jederzeit</dd></div>
+          <a href="tel:015141442358" class="font-bold text-rust hover:text-rustdark whitespace-nowrap">0151 4144 2358</a>
+        </div>
+        <div class="flex justify-between items-center gap-4 pt-3">
+          <div><dt class="font-bold">🏔️ Bergwacht (Bergunfall)</dt><dd class="text-slate text-xs mt-0.5">Immer zuerst 112 wählen</dd></div>
+          <a href="tel:112" class="font-bold text-rust hover:text-rustdark whitespace-nowrap">112</a>
+        </div>
+        <div class="flex justify-between items-center gap-4 pt-3">
+          <div><dt class="font-bold">🏨 Touristinfo Berchtesgaden</dt><dd class="text-slate text-xs mt-0.5">Veranstaltungen, Gästekarte</dd></div>
+          <a href="tel:0865296610" class="font-bold text-slate hover:text-charcoal whitespace-nowrap">08652 9661-0</a>
+        </div>
+      </dl>
+    </div>
+    <div class="mt-4 bg-rust/10 border border-rust/30 rounded-xl p-4 text-sm flex gap-3">
+      <span class="text-rust text-xl shrink-0" aria-hidden="true">🔴</span>
+      <p>Im <strong>echten Notfall immer zuerst 112</strong>. Standort: <em>„Königsseer Straße 10, 83471 Berchtesgaden"</em>. Ruhig bleiben, auf Anweisungen warten.</p>
+    </div>
+  </section>
+
+  <hr class="border-charcoal/10">
+
+  <!-- 6. HAUSREGELN -->
+  <section id="gm-hausregeln" aria-labelledby="gm-hausregeln-title" class="scroll-mt-24">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-3xl" aria-hidden="true">🏡</span>
+      <h2 id="gm-hausregeln-title" class="font-display font-bold text-2xl sm:text-3xl">Kleine Hausregeln</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex gap-4">
+        <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">🚭</span>
+        <div><h3 class="font-bold mb-1">Nichtraucherhaus</h3><p class="text-sm text-slate leading-relaxed">Beide Wohnungen sind Nichtraucherwohnungen. Kein Rauchen in den Räumen, auf Balkon oder Terrasse. Bei Zuwiderhandlung behalten wir uns vor, Reinigungskosten in Rechnung zu stellen.</p></div>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex gap-4">
+        <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">🌙</span>
+        <div><h3 class="font-bold mb-1">Ruhezeiten</h3><p class="text-sm text-slate leading-relaxed"><strong>Nachtruhe 22:00–07:00 Uhr</strong>, Mittagsruhe 13:00–15:00 Uhr. Bitte denken Sie an die Nachbarn im Haus.</p></div>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex gap-4">
+        <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">🐾</span>
+        <div><h3 class="font-bold mb-1">Haustiere</h3><p class="text-sm text-slate leading-relaxed">Nach vorheriger Absprache herzlich willkommen. Bitte vor Anreise informieren, nicht auf Möbel lassen.</p></div>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex gap-4">
+        <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">👥</span>
+        <div><h3 class="font-bold mb-1">Gästezahl</h3><p class="text-sm text-slate leading-relaxed">Nur gebuchte Personen dürfen übernachten (Meldepflicht + Kurtaxe). Bitte nicht gebuchte Gäste vorab melden.</p></div>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex gap-4">
+        <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">🪟</span>
+        <div><h3 class="font-bold mb-1">Heizung &amp; Lüftung</h3><p class="text-sm text-slate leading-relaxed">Bitte nicht heizen bei gekipptem Fenster. Kurzes Stoßlüften (3–5 Min.) ist viel effizienter und schützt vor Schimmel.</p></div>
+      </div>
+      <div class="bg-paper border-2 border-charcoal rounded-2xl p-5 shadow-soft-sm flex gap-4">
+        <span class="text-2xl shrink-0 mt-0.5" aria-hidden="true">🔒</span>
+        <div><h3 class="font-bold mb-1">Sicherheit</h3><p class="text-sm text-slate leading-relaxed">Beim Verlassen der Wohnung immer die Eingangstür abschließen – auch bei kurzen Abwesenheiten.</p></div>
+      </div>
+    </div>
+    <p class="mt-6 text-sm text-slate text-center leading-relaxed">Vielen Dank, dass Sie diese Regeln respektieren! 🙏 Bei Fragen einfach melden.</p>
+  </section>
+
+</main>
+</section>
+
+
+<!-- =========================================================
      FOOTER
 ========================================================= -->
 <footer id="contact" class="bg-pine text-cream">
@@ -599,6 +880,7 @@
           <li><a href="#location" class="hover:text-gold" data-i18n="nav.location">Location</a></li>
           <li><a href="#nearby" class="hover:text-gold" data-i18n="nav.nearby">Nearby</a></li>
           <li><a href="#about" class="hover:text-gold" data-i18n="nav.about">About</a></li>
+          <li><button type="button" class="hover:text-gold guestinfo-link" data-i18n="nav.guestinfo">Gästemappe</button></li>
         </ul>
       </div>
 
@@ -606,8 +888,8 @@
         <p class="font-display font-bold text-sm mb-4 text-gold" data-i18n="footer.contactTitle">Contact</p>
         <ul class="space-y-2 text-sm text-cream/75">
           <!-- PASTE CONTACT INFO: replace with your real email and phone number -->
-          <li><a href="mailto:info@watzmann-stay.example" class="hover:text-gold">menzel.philipp@proton.me</a></li>
-          <li><a href="tel:+498652000000" class="hover:text-gold">+49 151 44570059</a></li>
+          <li><a href="mailto:info@watzmann-stay.example" class="hover:text-gold">info@watzmann-stay.example</a></li>
+          <li><a href="tel:+498652000000" class="hover:text-gold">+49 8652 000000</a></li>
           <li class="pt-2 flex gap-3">
             <!-- PASTE SOCIAL LINKS: replace # with real profile URLs -->
             <a href="#" aria-label="Instagram" class="border-2 border-cream rounded-full w-9 h-9 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-charcoal transition-colors">
@@ -649,12 +931,12 @@
     </div>
     <div class="prose-legal text-sm leading-relaxed space-y-3" data-i18n="legal.imprintBody">
       <p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
-      <p>[PLATZHALTER: Vor- und Nachname bzw. Firmenname]<br>[Königsseerstraße 10]<br>[83471 Berchtesgaden]<br>Deutschland</p>
-      <p><strong>Kontakt</strong><br>Telefon: [+4915144570059]<br>E-Mail: [menzel.philipp@proton.me]</p>
+      <p>FeWo Watzmann Menzel, Einzelfirma<br>Inhaberin: Frau S. Menzel<br>Königsseer Straße 10<br>D-83471 Berchtesgaden<br>Deutschland</p>
+      <p><strong>Kontakt</strong><br>Telefon: 0151 4144 2358<br>E-Mail: [PLATZHALTER: E-Mail-Adresse — bitte eintragen]</p>
       <p><strong>Umsatzsteuer-Identifikationsnummer</strong><br>gemäß § 27a Umsatzsteuergesetz: [PLATZHALTER: USt-IdNr. oder "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)."]</p>
-      <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>[PLATZHALTER: Name, Anschrift wie oben]</p>
+      <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>Frau S. Menzel, Anschrift wie oben</p>
       <p><strong>EU-Streitschlichtung</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a> finden. Unsere E-Mail-Adresse finden Sie oben unter Kontakt.</p>
-      <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind zur Teilnahme an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle [PLATZHALTER: nicht bereit und nicht verpflichtet / bereit] (§ 36 VSBG). [PLATZHALTER, falls bereit: Name und Anschrift der zuständigen Schlichtungsstelle ergänzen.]</p>
+      <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).</p>
     </div>
   </div>
 
@@ -665,7 +947,7 @@
       <button type="button" class="legal-close border-2 border-charcoal rounded-xl px-3 py-1 font-bold" aria-label="Close" data-i18n="legal.close">Close</button>
     </div>
     <div class="prose-legal text-sm leading-relaxed space-y-3" data-i18n="legal.privacyBody">
-      <p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist [Menzel Sybille, Königsseerstraße 10 83471, menzel.philipp@proton.me].</p>
+      <p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist FeWo Watzmann Menzel, Frau S. Menzel, Königsseer Straße 10, D-83471 Berchtesgaden, Telefon: 0151 4144 2358, E-Mail: [PLATZHALTER: E-Mail-Adresse — bitte eintragen].</p>
       <p><strong>2. Server-Logfiles / Hosting</strong><br>Beim Aufruf dieser Website erhebt unser Hosting-Provider automatisch technische Daten (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser), die zur Bereitstellung der Seite und aus Sicherheitsgründen erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem funktionsfähigen, sicheren Betrieb). [PLATZHALTER: Name und Sitz des Hosters sowie ggf. Link zu dessen Auftragsverarbeitungsvertrag ergänzen.]</p>
       <p><strong>3. Lokale Speicherung der Spracheinstellung</strong><br>Diese Website speichert Ihre gewählte Sprache (Deutsch/Englisch) technisch notwendig im lokalen Speicher (localStorage) Ihres Browsers, um sie bei einem erneuten Besuch beizubehalten. Es werden dabei keine personenbezogenen Daten an uns oder Dritte übermittelt. Diese Speicherung ist gemäß § 25 Abs. 2 Nr. 2 TTDSG von der Einwilligungspflicht ausgenommen, da sie unbedingt erforderlich ist, um den von Ihnen ausdrücklich gewünschten Dienst (Spracheinstellung) bereitzustellen.</p>
       <p><strong>4. Google Fonts (nur nach Einwilligung)</strong><br>Diese Seite verwendet die Schriftarten „Fraunces" und „Nunito". Diese werden <em>nicht automatisch</em> von Google-Servern geladen. Erst wenn Sie im Cookie-Banner aktiv „Alle akzeptieren" wählen, wird eine Verbindung zu Servern von Google Fonts (Google Ireland Limited bzw. Google LLC, ggf. mit Datenübertragung in die USA) aufgebaut, wobei Ihre IP-Adresse an Google übertragen wird. Rechtsgrundlage ist in diesem Fall Ihre Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit über „Cookie-Einstellungen" im Footer mit Wirkung für die Zukunft widerrufen können. Lehnen Sie ab oder treffen Sie keine Wahl, wird ausschließlich eine systemeigene Schriftart Ihres Geräts angezeigt.</p>
@@ -673,8 +955,8 @@
       <p><strong>6. Keine Buchungs- oder Kontaktformulare</strong><br>Diese Website erhebt aktuell keine von Ihnen aktiv eingegebenen personenbezogenen Daten (z. B. über ein Kontakt- oder Buchungsformular). Nehmen Sie per E-Mail oder Telefon Kontakt zu uns auf, verarbeiten wir die dabei von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Nachrichteninhalt) ausschließlich zur Bearbeitung Ihrer Anfrage, Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO.</p>
       <p><strong>7. Speicherdauer</strong><br>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen.</p>
       <p><strong>8. Ihre Rechte</strong><br>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Ihnen steht zudem ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde zu, z. B. der für [PLATZHALTER: Bundesland] zuständigen Behörde.</p>
-      <p><strong>9. Kontakt in Datenschutzfragen</strong><br>[menzel.philipp@proton.me].</p>
-      <p class="text-xs text-slate pt-2">Stand: [28. September 2026]</p>
+      <p><strong>9. Kontakt in Datenschutzfragen</strong><br>Wie oben unter „Verantwortlicher" (Telefon: 0151 4144 2358, E-Mail: [PLATZHALTER]).</p>
+      <p class="text-xs text-slate pt-2">Stand: [PLATZHALTER: Datum]</p>
     </div>
   </div>
 </div>
@@ -788,6 +1070,7 @@
       'nav.contact': 'Contact',
       'nav.cta': 'Check availability',
       'nav.nearby': 'Nearby',
+      'nav.guestinfo': 'Guest guide',
 
       'hero.eyebrow': 'Berchtesgaden Alps',
       'hero.headline': 'Two apartments. One mountain range worth coming back to.',
@@ -884,6 +1167,10 @@
       'about.p1': "We manage both apartments directly, so questions get answered by someone who actually knows the building, the street and the best time to walk up to the Watzmann viewpoint, not a call centre.",
       'about.p2': "Each flat is cleaned and prepared between every stay, and we're reachable throughout your visit if anything comes up.",
 
+
+      'gm.eyebrow': 'For your stay',
+      'gm.headline': 'Guest Guide',
+      'gm.sub': 'Everything you need for a relaxed stay – from Wi-Fi to check-out.',
       'footer.tagline': 'Two apartments in Berchtesgaden: one central and versatile, one quiet and made for couples.',
       'footer.navTitle': 'Quick links',
       'footer.contactTitle': 'Contact',
@@ -902,13 +1189,13 @@
       'legal.privacyTitle': 'Privacy policy',
       'legal.close': 'Close',
       'legal.imprintBody': `<p><strong>Information according to § 5 DDG (German Digital Services Act)</strong></p>
-        <p>[PLACEHOLDER: Full name or company name]<br>[Königsseerstraße 10]<br>[83471 Berchtesgaden]<br>Germany</p>
-        <p><strong>Contact</strong><br>Phone: [+4915144570059]<br>Email: [menzel.philipp@proton.me]</p>
+        <p>FeWo Watzmann Menzel, sole proprietorship<br>Owner: Ms S. Menzel<br>Königsseer Straße 10<br>D-83471 Berchtesgaden<br>Germany</p>
+        <p><strong>Contact</strong><br>Phone: +49 151 4144 2358<br>Email: [PLACEHOLDER: email address — please add]</p>
         <p><strong>VAT identification number</strong><br>pursuant to § 27a of the German VAT Act: [PLACEHOLDER: VAT ID, or "No VAT is charged under the small business regulation, § 19 UStG."]</p>
-        <p><strong>Responsible for content pursuant to § 18(2) MStV</strong><br>[PLACEHOLDER: name and address as above]</p>
+        <p><strong>Responsible for content pursuant to § 18(2) MStV</strong><br>Ms S. Menzel, address as above</p>
         <p><strong>EU dispute resolution</strong><br>The European Commission provides a platform for online dispute resolution (ODR), available at <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a>. Our email address can be found above under Contact.</p>
-        <p><strong>Consumer dispute resolution</strong><br>We are [PLACEHOLDER: not willing or obliged / willing] to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG). [PLACEHOLDER, if willing: add the name and address of the responsible arbitration board.]</p>`,
-      'legal.privacyBody': `<p><strong>1. Controller</strong><br>The controller within the meaning of the GDPR is [PLACEHOLDER: name, address, email as in the imprint].</p>
+        <p><strong>Consumer dispute resolution</strong><br>We are neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG).</p>`,
+      'legal.privacyBody': `<p><strong>1. Controller</strong><br>The controller within the meaning of the GDPR is FeWo Watzmann Menzel, Ms S. Menzel, Königsseer Straße 10, D-83471 Berchtesgaden, Germany, phone: +49 151 4144 2358, email: [PLACEHOLDER: email address — please add].</p>
         <p><strong>2. Server log files / hosting</strong><br>When you visit this website, our hosting provider automatically collects technical data (e.g. IP address, date and time of access, page requested, browser used) required to deliver the site and for security purposes. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in a functional, secure website). [PLACEHOLDER: add hosting provider name/location and a link to the data processing agreement if applicable.]</p>
         <p><strong>3. Local storage of your language setting</strong><br>This site stores your selected language (German/English) in your browser's local storage so it is remembered on your next visit. No personal data is transmitted to us or third parties in the process. This is exempt from consent requirements under § 25(2) no. 2 TTDSG, as it is strictly necessary to provide the service you explicitly requested (the language setting).</p>
         <p><strong>4. Google Fonts (only with consent)</strong><br>This site uses the "Fraunces" and "Nunito" typefaces. They are <em>not</em> loaded automatically from Google's servers. Only if you actively choose "Accept all" in the cookie banner does your browser connect to Google Fonts servers (Google Ireland Limited / Google LLC, potentially involving data transfer to the US), transmitting your IP address to Google. The legal basis in that case is your consent, Art. 6(1)(a) GDPR, which you can withdraw at any time with future effect via "Cookie settings" in the footer. If you decline or make no choice, only a system font on your device is shown.</p>
@@ -916,8 +1203,8 @@
         <p><strong>6. No booking or contact forms</strong><br>This website currently does not collect any personal data you actively enter (e.g. via a contact or booking form). If you contact us by email or phone, we process the data you provide (e.g. name, email address, message content) solely to handle your enquiry, legal basis Art. 6(1)(b) GDPR (pre-contractual measures) or Art. 6(1)(f) GDPR.</p>
         <p><strong>7. Retention period</strong><br>We only retain personal data for as long as necessary for the purposes stated above or as required by statutory retention obligations.</p>
         <p><strong>8. Your rights</strong><br>You have the right to access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR), data portability (Art. 20 GDPR) and objection to processing (Art. 21 GDPR). Any consent given can be withdrawn at any time with future effect. You also have the right to lodge a complaint with a data protection supervisory authority, e.g. the authority responsible for [PLACEHOLDER: federal state].</p>
-        <p><strong>9. Contact for data protection matters</strong><br>[menzel.philipp@proton.me].</p>
-        <p class="text-xs text-slate pt-2">Last updated: [28. September 2026]</p>`,
+        <p><strong>9. Contact for data protection matters</strong><br>As above under "Controller" (phone: +49 151 4144 2358, email: [PLACEHOLDER]).</p>
+        <p class="text-xs text-slate pt-2">Last updated: [PLACEHOLDER: date]</p>`,
     },
     de: {
       'nav.tagline': 'Berchtesgaden',
@@ -927,6 +1214,7 @@
       'nav.contact': 'Kontakt',
       'nav.cta': 'Verfügbarkeit prüfen',
       'nav.nearby': 'Umgebung',
+      'nav.guestinfo': 'Gästemappe',
 
       'hero.eyebrow': 'Berchtesgadener Alpen',
       'hero.headline': 'Zwei Wohnungen. Ein Bergpanorama, zu dem man gerne zurückkehrt.',
@@ -1023,6 +1311,10 @@
       'about.p1': 'Wir verwalten beide Wohnungen persönlich, deshalb beantwortet Ihre Fragen jemand, der das Haus, die Straße und den besten Zeitpunkt für den Aufstieg zum Watzmann-Aussichtspunkt wirklich kennt, kein Callcenter.',
       'about.p2': 'Jede Wohnung wird zwischen den Aufenthalten gereinigt und vorbereitet, und wir sind während Ihres Besuchs jederzeit erreichbar.',
 
+
+      'gm.eyebrow': 'Für Ihren Aufenthalt',
+      'gm.headline': 'Gästemappe',
+      'gm.sub': 'Alles Wichtige für einen entspannten Aufenthalt – von WLAN bis Check-out.',
       'footer.tagline': 'Zwei Wohnungen in Berchtesgaden: eine zentral und vielseitig, eine ruhig und für Paare gemacht.',
       'footer.navTitle': 'Schnellzugriff',
       'footer.contactTitle': 'Kontakt',
@@ -1041,13 +1333,13 @@
       'legal.privacyTitle': 'Datenschutzerklärung',
       'legal.close': 'Schließen',
       'legal.imprintBody': `<p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
-        <p>[PLATZHALTER: Vor- und Nachname bzw. Firmenname]<br>[Königsseerstraße 10]<br>[83471 Berchtesgaden]<br>Deutschland</p>
-        <p><strong>Kontakt</strong><br>Telefon: [+4915144570059]<br>E-Mail: [menzel.philipp@proton.me]</p>
+        <p>FeWo Watzmann Menzel, Einzelfirma<br>Inhaberin: Frau S. Menzel<br>Königsseer Straße 10<br>D-83471 Berchtesgaden<br>Deutschland</p>
+        <p><strong>Kontakt</strong><br>Telefon: 0151 4144 2358<br>E-Mail: [PLATZHALTER: E-Mail-Adresse — bitte eintragen]</p>
         <p><strong>Umsatzsteuer-Identifikationsnummer</strong><br>gemäß § 27a Umsatzsteuergesetz: [PLATZHALTER: USt-IdNr. oder "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)."]</p>
-        <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>[PLATZHALTER: Name, Anschrift wie oben]</p>
+        <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>Frau S. Menzel, Anschrift wie oben</p>
         <p><strong>EU-Streitschlichtung</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a> finden. Unsere E-Mail-Adresse finden Sie oben unter Kontakt.</p>
-        <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind zur Teilnahme an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle [PLATZHALTER: nicht bereit und nicht verpflichtet / bereit] (§ 36 VSBG). [PLATZHALTER, falls bereit: Name und Anschrift der zuständigen Schlichtungsstelle ergänzen.]</p>`,
-      'legal.privacyBody': `<p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist [PLATZHALTER: Name, Anschrift, E-Mail wie im Impressum].</p>
+        <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).</p>`,
+      'legal.privacyBody': `<p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist FeWo Watzmann Menzel, Frau S. Menzel, Königsseer Straße 10, D-83471 Berchtesgaden, Telefon: 0151 4144 2358, E-Mail: [PLATZHALTER: E-Mail-Adresse — bitte eintragen].</p>
         <p><strong>2. Server-Logfiles / Hosting</strong><br>Beim Aufruf dieser Website erhebt unser Hosting-Provider automatisch technische Daten (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser), die zur Bereitstellung der Seite und aus Sicherheitsgründen erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem funktionsfähigen, sicheren Betrieb). [PLATZHALTER: Name und Sitz des Hosters sowie ggf. Link zu dessen Auftragsverarbeitungsvertrag ergänzen.]</p>
         <p><strong>3. Lokale Speicherung der Spracheinstellung</strong><br>Diese Website speichert Ihre gewählte Sprache (Deutsch/Englisch) technisch notwendig im lokalen Speicher (localStorage) Ihres Browsers, um sie bei einem erneuten Besuch beizubehalten. Es werden dabei keine personenbezogenen Daten an uns oder Dritte übermittelt. Diese Speicherung ist gemäß § 25 Abs. 2 Nr. 2 TTDSG von der Einwilligungspflicht ausgenommen, da sie unbedingt erforderlich ist, um den von Ihnen ausdrücklich gewünschten Dienst (Spracheinstellung) bereitzustellen.</p>
         <p><strong>4. Google Fonts (nur nach Einwilligung)</strong><br>Diese Seite verwendet die Schriftarten „Fraunces" und „Nunito". Diese werden <em>nicht automatisch</em> von Google-Servern geladen. Erst wenn Sie im Cookie-Banner aktiv „Alle akzeptieren" wählen, wird eine Verbindung zu Servern von Google Fonts (Google Ireland Limited bzw. Google LLC, ggf. mit Datenübertragung in die USA) aufgebaut, wobei Ihre IP-Adresse an Google übertragen wird. Rechtsgrundlage ist in diesem Fall Ihre Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit über „Cookie-Einstellungen" im Footer mit Wirkung für die Zukunft widerrufen können. Lehnen Sie ab oder treffen Sie keine Wahl, wird ausschließlich eine systemeigene Schriftart Ihres Geräts angezeigt.</p>
@@ -1055,8 +1347,8 @@
         <p><strong>6. Keine Buchungs- oder Kontaktformulare</strong><br>Diese Website erhebt aktuell keine von Ihnen aktiv eingegebenen personenbezogenen Daten (z. B. über ein Kontakt- oder Buchungsformular). Nehmen Sie per E-Mail oder Telefon Kontakt zu uns auf, verarbeiten wir die dabei von Ihnen übermittelten Daten (z. B. Name, E-Mail-Adresse, Nachrichteninhalt) ausschließlich zur Bearbeitung Ihrer Anfrage, Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO.</p>
         <p><strong>7. Speicherdauer</strong><br>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen.</p>
         <p><strong>8. Ihre Rechte</strong><br>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Ihnen steht zudem ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde zu, z. B. der für [PLATZHALTER: Bundesland] zuständigen Behörde.</p>
-        <p><strong>9. Kontakt in Datenschutzfragen</strong><br>[menzel.philipp@proton.me].</p>
-        <p class="text-xs text-slate pt-2">Stand: [28 September 2026]</p>`,
+        <p><strong>9. Kontakt in Datenschutzfragen</strong><br>Wie oben unter „Verantwortlicher" (Telefon: 0151 4144 2358, E-Mail: [PLATZHALTER]).</p>
+        <p class="text-xs text-slate pt-2">Stand: [PLATZHALTER: Datum]</p>`,
     }
   };
 
@@ -1085,471 +1377,46 @@
   ['lang-en', 'lang-en-m'].forEach(id => document.getElementById(id).addEventListener('click', () => setLanguage('en')));
   ['lang-de', 'lang-de-m'].forEach(id => document.getElementById(id).addEventListener('click', () => setLanguage('de')));
 
+
+  // ---- SPA view switching: Landingpage <-> Gästemappe ----
+  const mainContent = document.getElementById('main-content-wrapper');
+  const gmSection   = document.getElementById('gasteinfo');
+
+  function showView(view) {
+    const isGuest = view === 'gasteinfo';
+    // toggle main page sections
+    document.querySelectorAll('#main-content-wrapper, #home, #properties, #location, #nearby, #good-to-know, #about, footer#contact').forEach(el => {
+      el.classList.toggle('hidden', isGuest);
+    });
+    gmSection.classList.toggle('hidden', !isGuest);
+    // update all guestinfo nav buttons
+    document.querySelectorAll('[id^="nav-guestinfo-btn"], .guestinfo-link').forEach(btn => {
+      btn.classList.toggle('text-pine', !isGuest);
+      btn.classList.toggle('text-rust', isGuest);
+    });
+    localStorage.setItem('watzmannstay-view', view);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isGuest) document.title = 'Gästemappe – Watzmann Stay Berchtesgaden';
+    else setLanguage(localStorage.getItem('watzmannstay-lang') || 'de');
+  }
+
+  document.querySelectorAll('[id^="nav-guestinfo-btn"], .guestinfo-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showView('gasteinfo');
+      setMenuOpen(false);
+    });
+  });
+
+  // Back links inside guestinfo (none needed; clicking the logo or any nav link brings you back)
+  document.querySelector('a[href="#home"]')?.addEventListener('click', () => showView('landing'));
+
+  // On load: check hash or stored view
+  if (window.location.hash === '#gasteinfo') showView('gasteinfo');
+
   // Initialise: use saved preference, else browser language, else English
   const saved = localStorage.getItem('watzmannstay-lang');
   const browserLang = (navigator.language || 'en').toLowerCase().startsWith('de') ? 'de' : 'en';
   setLanguage(saved || browserLang);
-</script>
-
-</body>
-</html>          display: ['"Fraunces"', 'Georgia', '"Iowan Old Style"', '"Palatino Linotype"', 'serif'],
-          sans: ['"Nunito"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-        },
-      }
-    }
-  }
-</script>
-
-<style>
-  @media (prefers-reduced-transparency: reduce) {
-    header#site-header { background-color: #F7F1E3; backdrop-filter: none; -webkit-backdrop-filter: none; }
-  }
-  @media (prefers-contrast: more) {
-    header#site-header { background-color: #F7F1E3; border-bottom: 2px solid #2B211B; }
-  }
-
-  html { scroll-behavior: smooth; }
-
-  .shadow-soft    { box-shadow: 0 20px 40px -14px rgba(43,33,27,0.38), 0 3px 10px rgba(43,33,27,0.14); }
-  .shadow-soft-sm { box-shadow: 0 8px 18px -8px rgba(43,33,27,0.32), 0 1px 4px rgba(43,33,27,0.12); }
-
-  .lift {
-    transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 150ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform;
-  }
-  .lift:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -12px rgba(43,33,27,0.4), 0 3px 10px rgba(43,33,27,0.16); }
-  .lift:active { transform: translateY(-1px) scale(0.97); transition-duration: 80ms; }
-
-  header#site-header {
-    background-color: rgba(247, 241, 227, 0.72);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    backdrop-filter: blur(20px) saturate(180%);
-    box-shadow: 0 1px 0 rgba(43,33,27,0.08);
-    transition: box-shadow 200ms ease, background-color 200ms ease;
-  }
-  header#site-header.is-scrolled {
-    box-shadow: 0 8px 20px -12px rgba(43,33,27,0.3), 0 1px 0 rgba(43,33,27,0.12);
-  }
-
-  #mobile-menu {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    transform-origin: top center;
-    transition: grid-template-rows 260ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms ease;
-    overflow: hidden;
-  }
-  #mobile-menu.is-open { grid-template-rows: 1fr; opacity: 1; }
-  #mobile-menu > .mobile-menu-inner { min-height: 0; }
-
-  .alpine-trim {
-    height: 12px;
-    background: repeating-linear-gradient(
-      45deg,
-      #B5432E 0px, #B5432E 16px,
-      #D79A2C 16px, #D79A2C 32px,
-      #2F4A34 32px, #2F4A34 48px
-    );
-  }
-
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid #B5432E;
-    outline-offset: 3px;
-  }
-
-  h2.section-headline { letter-spacing: -0.015em; line-height: 1.1; }
-  h3 { letter-spacing: -0.005em; }
-  body { letter-spacing: 0; }
-
-  /* Guest-info card accent bar, colour set per card via data attribute */
-  .info-card { border-top: 6px solid var(--accent, #B5432E); }
-</style>
-</head>
-
-<body class="bg-cream text-charcoal font-sans antialiased">
-
-<!-- =========================================================
-     COOKIE / CONSENT BANNER (identisch zur Hauptseite)
-========================================================= -->
-<div id="consent-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden" role="dialog" aria-live="polite" aria-label="Cookie- und Datenschutzhinweis" aria-describedby="consent-text">
-  <div class="max-w-3xl mx-auto m-4 bg-paper border-2 border-charcoal rounded-2xl shadow-soft p-5 sm:p-6">
-    <p id="consent-text" class="text-sm leading-relaxed mb-4">Wir nutzen nur technisch notwendige lokale Speicherung. Mit Ihrer Einwilligung laden wir zusätzlich die Schriftarten „Fraunces" und „Nunito" von Google Fonts, wodurch Ihre IP-Adresse an Google übertragen wird. Sie können Ihre Wahl jederzeit über „Cookie-Einstellungen" im Footer ändern.</p>
-    <div class="flex flex-col sm:flex-row gap-3">
-      <button type="button" id="consent-accept" class="bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 shadow-soft-sm lift">Alle akzeptieren</button>
-      <button type="button" id="consent-reject" class="bg-transparent text-charcoal border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 lift">Nur essenzielle</button>
-      <button type="button" id="consent-details-link" class="text-sm font-medium underline underline-offset-2 self-center sm:ml-auto">Datenschutzerklärung</button>
-    </div>
-  </div>
-</div>
-
-<!-- Accent stripe -->
-<div class="h-1.5 w-full flex" aria-hidden="true">
-  <div class="flex-1 bg-rust"></div>
-  <div class="flex-1 bg-gold"></div>
-  <div class="flex-1 bg-pine"></div>
-  <div class="flex-1 bg-sky"></div>
-</div>
-
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
-<header id="site-header" class="sticky top-0 z-50">
-  <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <div class="flex items-center justify-between h-16 sm:h-20">
-
-      <a href="index.html" class="font-display text-lg sm:text-xl tracking-tight flex items-baseline gap-2">
-        <span class="font-bold italic">Watzmann Stay</span>
-        <span class="hidden sm:inline text-xs font-sans font-medium text-slate">Berchtesgaden</span>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
-        <a href="index.html#properties" class="hover:text-rust transition-colors">Wohnungen</a>
-        <a href="index.html#location" class="hover:text-rust transition-colors">Lage</a>
-        <a href="index.html#nearby" class="hover:text-rust transition-colors">Umgebung</a>
-        <a href="index.html#about" class="hover:text-rust transition-colors">Über uns</a>
-        <a href="gasteinfo.html" class="text-rust transition-colors" aria-current="page">Gästeinfo</a>
-        <a href="index.html#contact" class="hover:text-rust transition-colors">Kontakt</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="index.html#properties" class="hidden sm:inline-block bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 shadow-soft-sm lift">Verfügbarkeit prüfen</a>
-
-        <button id="menu-toggle" type="button" class="md:hidden border-2 border-charcoal rounded-xl p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü öffnen/schließen">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M2 5H18M2 10H18M2 15H18" stroke="#2B211B" stroke-width="2"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <nav id="mobile-menu" class="md:hidden" aria-hidden="true">
-      <div class="mobile-menu-inner flex flex-col gap-4 font-medium text-sm border-t-2 border-charcoal pt-4 pb-5">
-        <a href="index.html#properties" class="hover:text-rust">Wohnungen</a>
-        <a href="index.html#location" class="hover:text-rust">Lage</a>
-        <a href="index.html#nearby" class="hover:text-rust">Umgebung</a>
-        <a href="index.html#about" class="hover:text-rust">Über uns</a>
-        <a href="gasteinfo.html" class="text-rust" aria-current="page">Gästeinfo</a>
-        <a href="index.html#contact" class="hover:text-rust">Kontakt</a>
-        <a href="index.html#properties" class="inline-block bg-rust text-cream border-2 border-charcoal rounded-xl font-sans font-bold text-sm px-4 py-2 text-center shadow-soft-sm lift">Verfügbarkeit prüfen</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- =========================================================
-     INTRO
-========================================================= -->
-<section class="max-w-4xl mx-auto px-5 sm:px-8 pt-12 sm:pt-16 pb-8">
-  <p class="font-sans font-bold text-sm uppercase tracking-wide text-rust mb-3">Digitale Gästemappe</p>
-  <h1 class="font-display font-bold text-3xl sm:text-4xl mb-4" style="letter-spacing:-0.015em;">Herzlich willkommen! Hier finden Sie alles Wichtige für Ihren Aufenthalt.</h1>
-  <p class="text-slate text-base sm:text-lg leading-relaxed">Diese Seite fasst die wichtigsten Infos für Ihre Ferienwohnung in Berchtesgaden zusammen – von WLAN über Mülltrennung bis zum Check-out. Am besten gleich als Lesezeichen speichern oder den Link am Anreisetag noch einmal aus unserer Nachricht öffnen.</p>
-</section>
-
-<div class="alpine-trim" aria-hidden="true"></div>
-
-<!-- =========================================================
-     INFO CARDS
-========================================================= -->
-<section class="max-w-4xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
-  <div class="grid sm:grid-cols-2 gap-6 sm:gap-7">
-
-    <!-- 1. WLAN & Internet -->
-    <div class="info-card bg-paper border-2 border-charcoal rounded-2xl shadow-soft-sm p-6" style="--accent:#4A7B8C;">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="w-10 h-10 rounded-full bg-sky/15 border-2 border-sky flex items-center justify-center shrink-0" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 9C9.5 5 14.5 5 19 9" stroke="#4A7B8C" stroke-width="2" stroke-linecap="round"/><path d="M8 12.5C10.8 10 13.2 10 16 12.5" stroke="#4A7B8C" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.4" fill="#4A7B8C"/></svg>
-        </span>
-        <h2 class="font-display font-bold text-xl">WLAN &amp; Internet</h2>
-      </div>
-      <p class="text-sm leading-relaxed mb-3">Das WLAN ist in der gesamten Wohnung kostenfrei nutzbar. Der Router steht im Flur bzw. Wohnzimmer; ein Neustart ist normalerweise nicht nötig.</p>
-      <div class="bg-cream border-2 border-charcoal/20 rounded-xl px-4 py-3 text-sm font-medium">
-        <p>Netzwerkname (SSID): <span class="font-bold">WatzmannStay_Gast</span></p>
-        <p>Passwort: <span class="font-bold">Berchtesgaden2024!</span></p>
-      </div>
-      <p class="text-xs text-slate mt-3">Tipp: Zugangsdaten stehen zusätzlich auf einer kleinen Karte neben dem Router.</p>
-    </div>
-
-    <!-- 2. Parken -->
-    <div class="info-card bg-paper border-2 border-charcoal rounded-2xl shadow-soft-sm p-6" style="--accent:#B5432E;">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="w-10 h-10 rounded-full bg-rust/15 border-2 border-rust flex items-center justify-center shrink-0" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#B5432E" stroke-width="2"/><path d="M9.5 16V8h3.2a2.4 2.4 0 0 1 0 4.8H9.5" stroke="#B5432E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h2 class="font-display font-bold text-xl">Parken</h2>
-      </div>
-      <p class="text-sm leading-relaxed mb-2">Ihnen steht ein fest zugewiesener Stellplatz auf dem Hof zur Verfügung, gekennzeichnet mit einem kleinen Schild „Ferienwohnung".</p>
-      <ul class="text-sm leading-relaxed list-disc list-inside space-y-1 text-slate">
-        <li>Bitte fahren Sie im Hof im Schritttempo und achten Sie auf spielende Kinder.</li>
-        <li>Zweitwagen dürfen nach Absprache kurzzeitig am Straßenrand vor dem Haus abgestellt werden.</li>
-        <li>Das Hoftor bitte nach der Ein-/Ausfahrt wieder schließen.</li>
-      </ul>
-    </div>
-
-    <!-- 3. Mülltrennung -->
-    <div class="info-card bg-paper border-2 border-charcoal rounded-2xl shadow-soft-sm p-6 sm:col-span-2" style="--accent:#2F4A34;">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="w-10 h-10 rounded-full bg-pine/15 border-2 border-pine flex items-center justify-center shrink-0" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 12H7L6 8Z" stroke="#2F4A34" stroke-width="2" stroke-linejoin="round"/><path d="M9.5 8V6a2.5 2.5 0 0 1 5 0v2" stroke="#2F4A34" stroke-width="2"/><path d="M10 11v6M14 11v6" stroke="#2F4A34" stroke-width="2" stroke-linecap="round"/></svg>
-        </span>
-        <h2 class="font-display font-bold text-xl">Mülltrennung</h2>
-      </div>
-      <p class="text-sm leading-relaxed mb-4">In Deutschland – und besonders in Bayern – wird Müll konsequent getrennt. Das dauert am Anfang zwei Minuten, danach geht's von selbst. Die Tonnen stehen gesammelt am Hof, direkt links neben dem Hoftor.</p>
-      <div class="grid sm:grid-cols-2 gap-3 text-sm">
-        <div class="bg-cream border-2 border-charcoal/20 rounded-xl p-3">
-          <p class="font-bold mb-1">⚫ Restmüll (graue Tonne)</p>
-          <p class="text-slate">Windeln, Hygieneartikel, Asche, Staubsaugerbeutel, Kaugummi – alles, was in keine andere Tonne passt.</p>
-        </div>
-        <div class="bg-cream border-2 border-charcoal/20 rounded-xl p-3">
-          <p class="font-bold mb-1">🟤 Biomüll (braune Tonne)</p>
-          <p class="text-slate">Obst- und Gemüsereste, Kaffeesatz, Eierschalen, Teebeutel. Kein Plastik, auch keine „biologisch abbaubaren" Tüten.</p>
-        </div>
-        <div class="bg-cream border-2 border-charcoal/20 rounded-xl p-3">
-          <p class="font-bold mb-1">🔵 Papier (blaue Tonne)</p>
-          <p class="text-slate">Zeitungen, Kartons, Papierverpackungen. Bitte Kartons flach falten, damit mehr hineinpasst.</p>
-        </div>
-        <div class="bg-cream border-2 border-charcoal/20 rounded-xl p-3">
-          <p class="font-bold mb-1">🟡 Gelber Sack / Wertstoff</p>
-          <p class="text-slate">Verpackungen aus Plastik, Metall und Verbundstoffen (Joghurtbecher, Konservendosen, Tetrapaks). Der gelbe Sack hängt an der Garage.</p>
-        </div>
-      </div>
-      <p class="text-sm leading-relaxed mt-4"><strong>Glas</strong> gehört nicht in eine Tonne am Haus, sondern in die öffentlichen Altglas-Container (nach Farbe sortiert: weiß, grün, braun) am Parkplatz beim Rathaus, ca. 5 Gehminuten entfernt. Bitte beachten Sie dort die Ruhezeiten für Glaseinwurf (werktags 7–20 Uhr, sonn- und feiertags gar nicht).</p>
-    </div>
-
-    <!-- 4. Check-out / Abreise -->
-    <div class="info-card bg-paper border-2 border-charcoal rounded-2xl shadow-soft-sm p-6" style="--accent:#D79A2C;">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="w-10 h-10 rounded-full bg-gold/20 border-2 border-gold flex items-center justify-center shrink-0" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#D79A2C" stroke-width="2"/><path d="M12 8v4l3 2" stroke="#D79A2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <h2 class="font-display font-bold text-xl">Check-out / Abreise</h2>
-      </div>
-      <p class="text-sm leading-relaxed mb-2">Check-out ist bis <strong>10:00 Uhr</strong>. Beim Verlassen der Wohnung bitten wir Sie um Folgendes:</p>
-      <ul class="text-sm leading-relaxed list-disc list-inside space-y-1 text-slate">
-        <li>Schlüssel einfach auf dem Esstisch liegen lassen.</li>
-        <li>Alle Fenster schließen.</li>
-        <li>Heizung auf Stufe 2 (Frostschutz) herunterdrehen, nicht ganz abschalten.</li>
-        <li>Geschirrspüler bei Bedarf noch kurz anschalten, muss aber nicht ausgeräumt werden.</li>
-        <li>Müll bitte in die jeweiligen Tonnen am Hof bringen.</li>
-      </ul>
-      <p class="text-xs text-slate mt-3">Ein späterer Check-out ist nach Absprache manchmal möglich – einfach kurz vorher fragen.</p>
-    </div>
-
-    <!-- 5. Wichtige Nummern & Notfälle -->
-    <div class="info-card bg-paper border-2 border-charcoal rounded-2xl shadow-soft-sm p-6" style="--accent:#8F3322;">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="w-10 h-10 rounded-full bg-rustdark/15 border-2 border-rustdark flex items-center justify-center shrink-0" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2C10.5 20 4 13.5 4 6a2 2 0 0 1 2-2Z" stroke="#8F3322" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        </span>
-        <h2 class="font-display font-bold text-xl">Wichtige Nummern &amp; Notfälle</h2>
-      </div>
-      <ul class="text-sm leading-relaxed space-y-2">
-        <li class="flex justify-between gap-3"><span>Notruf Feuerwehr / Rettungsdienst</span><span class="font-bold">112</span></li>
-        <li class="flex justify-between gap-3"><span>Polizei</span><span class="font-bold">110</span></li>
-        <li class="flex justify-between gap-3"><span>Ärztlicher Bereitschaftsdienst</span><span class="font-bold">116 117</span></li>
-        <li class="flex justify-between gap-3 pt-2 border-t border-charcoal/15"><span>Ihre Gastgeberin (bei Fragen zur Wohnung)</span><span class="font-bold">[PLATZHALTER: Telefonnummer]</span></li>
-      </ul>
-      <p class="text-xs text-slate mt-3">Das nächstgelegene Krankenhaus ist die Kreisklinik Bad Reichenhall (ca. 20 Minuten mit dem Auto).</p>
-    </div>
-
-    <!-- 6. Hausregeln -->
-    <div class="info-card bg-paper border-2 border-charcoal rounded-2xl shadow-soft-sm p-6 sm:col-span-2" style="--accent:#6B5B4D;">
-      <div class="flex items-center gap-3 mb-3">
-        <span class="w-10 h-10 rounded-full bg-slate/15 border-2 border-slate flex items-center justify-center shrink-0" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 11 12 4l8 7" stroke="#6B5B4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9h12v-9" stroke="#6B5B4D" stroke-width="2" stroke-linejoin="round"/></svg>
-        </span>
-        <h2 class="font-display font-bold text-xl">Kleine Hausregeln</h2>
-      </div>
-      <p class="text-sm leading-relaxed mb-3">Damit sich alle – Sie, unsere Nachbarn und die nächsten Gäste – wohlfühlen, bitten wir um ein bisschen Rücksicht:</p>
-      <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm leading-relaxed list-disc list-inside text-slate">
-        <li>Nichtraucherwohnung – gerne draußen auf der Terrasse rauchen, Kippen bitte nicht in den Blumentopf.</li>
-        <li>Ruhezeiten von 22:00 bis 7:00 Uhr sowie an Sonn- und Feiertagen – bitte Musik und Gespräche auf der Terrasse dann etwas leiser halten.</li>
-        <li>Haustiere nur nach vorheriger Absprache willkommen.</li>
-        <li>Besuch von Personen, die nicht in der Buchung stehen, bitte kurz ankündigen.</li>
-        <li>Die Wohnung bitte so hinterlassen, wie Sie sie vorgefunden haben – eine Grundreinigung ist im Preis enthalten.</li>
-        <li>Bei Schäden oder Defekten einfach kurz melden, das ist völlig unkompliziert.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<div class="alpine-trim" aria-hidden="true"></div>
-
-<!-- =========================================================
-     FOOTER (identisch zur Hauptseite inkl. Impressum/Datenschutz)
-========================================================= -->
-<footer class="bg-pine text-cream">
-  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14 sm:py-16">
-    <div class="grid sm:grid-cols-3 gap-10 mb-12">
-
-      <div>
-        <p class="font-display font-bold italic text-xl mb-3">Watzmann Stay</p>
-        <p class="text-cream/75 text-sm leading-relaxed">Zwei Wohnungen in Berchtesgaden: eine zentral und vielseitig, eine ruhig und für Paare gemacht.</p>
-      </div>
-
-      <div>
-        <p class="font-display font-bold text-sm mb-4 text-gold">Schnellzugriff</p>
-        <ul class="space-y-2 text-sm text-cream/75">
-          <li><a href="index.html#properties" class="hover:text-gold">Wohnungen</a></li>
-          <li><a href="index.html#location" class="hover:text-gold">Lage</a></li>
-          <li><a href="index.html#about" class="hover:text-gold">Über uns</a></li>
-          <li><a href="gasteinfo.html" class="hover:text-gold">Gästeinfo</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="font-display font-bold text-sm mb-4 text-gold">Kontakt</p>
-        <ul class="space-y-2 text-sm text-cream/75">
-          <li><a href="mailto:info@watzmann-stay.example" class="hover:text-gold">info@watzmann-stay.example</a></li>
-          <li><a href="tel:+491514144235" class="hover:text-gold">0151 4144 2358</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="border-t-2 border-cream/30 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-cream/60">
-      <p><span id="year"></span> Watzmann Stay. Alle Rechte vorbehalten.</p>
-      <p>Ferienwohnung Watzmann &amp; Ferienwohnung Auszeit, Berchtesgaden.</p>
-    </div>
-
-    <nav aria-label="Rechtliches" class="border-t-2 border-cream/30 mt-4 pt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs">
-      <button type="button" id="open-imprint" class="underline underline-offset-2 text-cream/80 hover:text-gold">Impressum</button>
-      <button type="button" id="open-privacy" class="underline underline-offset-2 text-cream/80 hover:text-gold">Datenschutz</button>
-      <button type="button" id="open-cookie-settings" class="underline underline-offset-2 text-cream/80 hover:text-gold">Cookie-Einstellungen</button>
-    </nav>
-  </div>
-</footer>
-
-<!-- =========================================================
-     LEGAL MODALS: Impressum (§ 5 DDG) & Datenschutzerklärung (DSGVO)
-     Gleicher Inhalt wie auf index.html - bitte beide Seiten synchron halten.
-========================================================= -->
-<div id="legal-overlay" class="fixed inset-0 z-[200] hidden bg-charcoal/60 backdrop-blur-sm p-4 sm:p-8 overflow-y-auto" role="presentation">
-
-  <div id="modal-imprint" class="legal-modal hidden max-w-2xl mx-auto my-8 bg-paper border-2 border-charcoal rounded-2xl shadow-soft p-6 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="modal-imprint-title">
-    <div class="flex items-start justify-between gap-4 mb-4">
-      <h2 id="modal-imprint-title" class="font-display font-bold text-2xl">Impressum</h2>
-      <button type="button" class="legal-close border-2 border-charcoal rounded-xl px-3 py-1 font-bold" aria-label="Schließen">Schließen</button>
-    </div>
-    <div class="prose-legal text-sm leading-relaxed space-y-3">
-      <p><strong>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
-      <p>FeWo Watzmann Menzel, Einzelfirma<br>Inhaberin: Frau S. Menzel<br>Königsseer Straße 10<br>D-83471 Berchtesgaden<br>Deutschland</p>
-      <p><strong>Kontakt</strong><br>Telefon: 0151 4144 2358<br>E-Mail: [PLATZHALTER: E-Mail-Adresse — bitte eintragen]</p>
-      <p><strong>Umsatzsteuer-Identifikationsnummer</strong><br>gemäß § 27a Umsatzsteuergesetz: [PLATZHALTER: USt-IdNr. oder "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung)."]</p>
-      <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong><br>Frau S. Menzel, Anschrift wie oben</p>
-      <p><strong>EU-Streitschlichtung</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="underline">https://ec.europa.eu/consumers/odr/</a> finden. Unsere E-Mail-Adresse finden Sie oben unter Kontakt.</p>
-      <p><strong>Verbraucherstreitbeilegung / Universalschlichtungsstelle</strong><br>Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).</p>
-    </div>
-  </div>
-
-  <div id="modal-privacy" class="legal-modal hidden max-w-2xl mx-auto my-8 bg-paper border-2 border-charcoal rounded-2xl shadow-soft p-6 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
-    <div class="flex items-start justify-between gap-4 mb-4">
-      <h2 id="modal-privacy-title" class="font-display font-bold text-2xl">Datenschutzerklärung</h2>
-      <button type="button" class="legal-close border-2 border-charcoal rounded-xl px-3 py-1 font-bold" aria-label="Schließen">Schließen</button>
-    </div>
-    <div class="prose-legal text-sm leading-relaxed space-y-3">
-      <p><strong>1. Verantwortlicher</strong><br>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist FeWo Watzmann Menzel, Frau S. Menzel, Königsseer Straße 10, D-83471 Berchtesgaden, Telefon: 0151 4144 2358, E-Mail: [PLATZHALTER: E-Mail-Adresse — bitte eintragen].</p>
-      <p><strong>2. Server-Logfiles / Hosting</strong><br>Beim Aufruf dieser Website erhebt unser Hosting-Provider automatisch technische Daten (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser), die zur Bereitstellung der Seite und aus Sicherheitsgründen erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. [PLATZHALTER: Name und Sitz des Hosters ergänzen.]</p>
-      <p><strong>3. Lokale Speicherung</strong><br>Diese Seite speichert Ihre Cookie-Entscheidung technisch notwendig im lokalen Speicher (localStorage) Ihres Browsers. Es werden dabei keine personenbezogenen Daten an uns oder Dritte übermittelt. Dies ist gemäß § 25 Abs. 2 Nr. 2 TTDSG von der Einwilligungspflicht ausgenommen.</p>
-      <p><strong>4. Google Fonts (nur nach Einwilligung)</strong><br>Diese Seite verwendet die Schriftarten „Fraunces" und „Nunito". Diese werden <em>nicht automatisch</em> von Google-Servern geladen. Erst wenn Sie im Cookie-Banner aktiv „Alle akzeptieren" wählen, wird eine Verbindung zu Servern von Google Fonts aufgebaut, wobei Ihre IP-Adresse an Google übertragen wird. Rechtsgrundlage ist Ihre Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit über „Cookie-Einstellungen" im Footer widerrufen können.</p>
-      <p><strong>5. Keine Buchungs- oder Kontaktformulare</strong><br>Diese Seite erhebt keine von Ihnen aktiv eingegebenen personenbezogenen Daten. Kontaktieren Sie uns per E-Mail oder Telefon, verarbeiten wir die dabei übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage, Rechtsgrundlage Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO.</p>
-      <p><strong>6. Ihre Rechte</strong><br>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch (Art. 21 DSGVO), außerdem ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde.</p>
-      <p class="text-xs text-slate pt-2">Stand: [PLATZHALTER: Datum]</p>
-    </div>
-  </div>
-</div>
-
-<!-- =========================================================
-     SCRIPT: mobile menu + consent banner + legal modals
-========================================================= -->
-<script>
-  // ---- Mobile menu toggle ----
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  function setMenuOpen(open) {
-    mobileMenu.classList.toggle('is-open', open);
-    mobileMenu.setAttribute('aria-hidden', String(!open));
-    menuToggle.setAttribute('aria-expanded', String(open));
-  }
-  menuToggle.addEventListener('click', () => setMenuOpen(!mobileMenu.classList.contains('is-open')));
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
-
-  // ---- Header material ----
-  const siteHeader = document.getElementById('site-header');
-  const updateHeaderState = () => siteHeader.classList.toggle('is-scrolled', window.scrollY > 4);
-  updateHeaderState();
-  window.addEventListener('scroll', updateHeaderState, { passive: true });
-
-  // ---- Footer year ----
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // ---- Consent banner (gleiche Logik wie index.html) ----
-  const CONSENT_KEY = 'watzmannstay-consent';
-  const consentBanner = document.getElementById('consent-banner');
-
-  function loadGoogleFonts() {
-    if (document.getElementById('google-fonts-stylesheet')) return;
-    const preconnect1 = document.createElement('link');
-    preconnect1.rel = 'preconnect';
-    preconnect1.href = 'https://fonts.googleapis.com';
-    const preconnect2 = document.createElement('link');
-    preconnect2.rel = 'preconnect';
-    preconnect2.href = 'https://fonts.gstatic.com';
-    preconnect2.crossOrigin = 'anonymous';
-    const stylesheet = document.createElement('link');
-    stylesheet.id = 'google-fonts-stylesheet';
-    stylesheet.rel = 'stylesheet';
-    stylesheet.href = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;500;600;700;800&display=swap';
-    document.head.append(preconnect1, preconnect2, stylesheet);
-  }
-
-  function applyConsent(choice) {
-    localStorage.setItem(CONSENT_KEY, choice);
-    if (choice === 'accepted') loadGoogleFonts();
-    consentBanner.classList.add('hidden');
-  }
-
-  document.getElementById('consent-accept').addEventListener('click', () => applyConsent('accepted'));
-  document.getElementById('consent-reject').addEventListener('click', () => applyConsent('rejected'));
-
-  const savedConsent = localStorage.getItem(CONSENT_KEY);
-  if (savedConsent === 'accepted') {
-    loadGoogleFonts();
-  } else if (savedConsent === null) {
-    consentBanner.classList.remove('hidden');
-  }
-
-  document.getElementById('open-cookie-settings').addEventListener('click', () => consentBanner.classList.remove('hidden'));
-  document.getElementById('consent-details-link').addEventListener('click', () => {
-    consentBanner.classList.add('hidden');
-    openLegalModal('modal-privacy');
-  });
-
-  // ---- Legal modals ----
-  const legalOverlay = document.getElementById('legal-overlay');
-  let lastFocusedBeforeModal = null;
-
-  function openLegalModal(modalId) {
-    lastFocusedBeforeModal = document.activeElement;
-    document.querySelectorAll('.legal-modal').forEach(m => m.classList.add('hidden'));
-    document.getElementById(modalId).classList.remove('hidden');
-    legalOverlay.classList.remove('hidden');
-    const closeBtn = document.getElementById(modalId).querySelector('.legal-close');
-    if (closeBtn) closeBtn.focus();
-  }
-
-  function closeLegalModal() {
-    legalOverlay.classList.add('hidden');
-    document.querySelectorAll('.legal-modal').forEach(m => m.classList.add('hidden'));
-    if (lastFocusedBeforeModal) lastFocusedBeforeModal.focus();
-  }
-
-  document.getElementById('open-imprint').addEventListener('click', () => openLegalModal('modal-imprint'));
-  document.getElementById('open-privacy').addEventListener('click', () => openLegalModal('modal-privacy'));
-  document.querySelectorAll('.legal-close').forEach(btn => btn.addEventListener('click', closeLegalModal));
-  legalOverlay.addEventListener('click', (e) => { if (e.target === legalOverlay) closeLegalModal(); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !legalOverlay.classList.contains('hidden')) closeLegalModal();
-  });
 </script>
 
 </body>
